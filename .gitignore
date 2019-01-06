@@ -1,0 +1,5 @@
+node_modules/
+.vscode/
+__pycache__/
+mlab.pyc
+product.pyc
