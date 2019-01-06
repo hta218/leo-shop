@@ -573,182 +573,49 @@
             <div class="col-md-3">
               <div class="special-deal leftbar">
                 <h4 class="title">
-                  Special 
-                  <strong>
-                    Deals
-                  </strong>
+                  Ưu đãi <strong>hấp dẫn</strong>
                 </h4>
                 <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/products-01.png" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Licoln Corner Unit
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
-                </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/products-02.png" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Licoln Corner Unit
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
-                </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/products-03.png" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Licoln Corner Unit
-                    </p>
-                    <h5 class="price">
-                      $300.00
-                    </h5>
-                  </div>
+                  {% for deal in product.deals %}
+                    <div class="leo-product-deal">
+                      <div class="leo-gift">
+                        <i class="fa fa-gift fa-lg" aria-hidden="true"></i>
+                      </div>
+                      <div class="leo-deal-des">
+                        {{ deal }}
+                      </div>
+                    </div>
+                  {% endfor %}
                 </div>
               </div>
               <div class="clearfix">
               </div>
               <div class="product-tag leftbar">
                 <h3 class="title">
-                  Products 
-                  <strong>
-                    Tags
-                  </strong>
+                  Nhãn sản phẩm
                 </h3>
                 <ul>
-                  <li>
-                    <a href="#">
-                      Lincoln us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      SDress for Girl
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Corner
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Window
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      PG
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Oscar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bath room
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      PSD
-                    </a>
-                  </li>
+                  {% for tag in product.tags %}
+                    <li><a href="#">{{ tag }}</a></li>
+                  {% endfor %}
                 </ul>
               </div>
               <div class="clearfix">
               </div>
               <div class="get-newsletter leftbar">
                 <h3 class="title">
-                  Get 
-                  <strong>
-                    newsletter
-                  </strong>
+                  Nhận thông tin mới
                 </h3>
                 <p>
-                  Casio G Shock Digital Dial Black.
+                  Đăng kí để nhận những ưu đãi mới nhất của {{ product.name }}
                 </p>
+                <br>
                 <form>
-                  <input class="email" type="text" name="" placeholder="Your Email...">
-                  <input class="submit" type="submit" value="Submit">
+                  <input class="email" type="text" name="" placeholder="Email...">
+                  <input class="submit" type="submit" value="Nhận" style="float: right;">
                 </form>
               </div>
               <div class="clearfix">
-              </div>
-              <div class="fbl-box leftbar">
-                <h3 class="title">
-                  Facebook
-                </h3>
-                <span class="likebutton">
-                  <a href="#">
-                    <img src="images/fblike.png" alt="">
-                  </a>
-                </span>
-                <p>
-                  12k people like Flat Shop.
-                </p>
-                <ul>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                </ul>
-                <div class="fbplug">
-                  <a href="#">
-                    <span>
-                      <img src="images/fbicon.png" alt="">
-                    </span>
-                    Facebook social plugin
-                  </a>
-                </div>
               </div>
               <div class="clearfix">
               </div>

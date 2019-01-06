@@ -1,178 +1,71 @@
 <div class="col-md-3">
   <div class="category leftbar">
     <h3 class="title">
-      Categories
+      Sản phẩm
     </h3>
+    {% set categories = [
+      {'name': 'Điện Thoại', 'value': 'mobile'}, 
+      {'name': 'Tablet', 'value': 'tablet'}, 
+      {'name': 'Laptop', 'value': 'laptop'}, 
+      {'name': 'PC', 'value': 'pc'}, 
+      {'name': 'Phụ Kiện', 'value': 'equipment'}, 
+      {'name': 'Đồng Hồ', 'value': 'watch'}, 
+    ] %}
     <ul>
-      <li>
-        <a href="#">
-          Men
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Women
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Salon
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          New Trend
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Living room
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Bed room
-        </a>
-      </li>
+      {% for cat in categories %}
+        <li><a href="/product/{{cat.value}}">{{cat.name}}</a></li>
+      {% endfor %}
     </ul>
   </div>
-  <div class="clearfix">
-  </div>
+  
   <div class="branch leftbar">
     <h3 class="title">
-      Branch
+      Nhà cung cấp
     </h3>
+    {% set brands = [
+      {'name': 'Apple', 'value': 'mobile'}, 
+      {'name': 'Oppo', 'value': 'tablet'}, 
+      {'name': 'Nokia', 'value': 'laptop'}, 
+      {'name': 'Huawei', 'value': 'pc'}, 
+      {'name': 'Xiaomi', 'value': 'equipment'}, 
+      {'name': 'Asus', 'value': 'watch'}, 
+      {'name': 'Dell', 'value': 'watch'}, 
+      {'name': 'Lenovo', 'value': 'watch'}, 
+    ] %}
     <ul>
-      <li>
-        <a href="#">
-          New
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Sofa
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Salon
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          New Trend
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Living room
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Bed room
-        </a>
-      </li>
+      {% for br in brands %}
+        <li><a href="/product/{{br.value}}">{{br.name}}</a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="clearfix">
   </div>
   <div class="price-filter leftbar">
-    <h3 class="title">
-      Price
-    </h3>
+    <h3 class="title">Giá</h3>
     <form class="pricing">
-      <label>
-        $
-        <input type="number">
-      </label>
-      <span class="separate">
-        -
-      </span>
-      <label>
-        $
-        <input type="number">
-      </label>
-      <input type="submit" value="Go">
+      <label>Từ: <input type="number"></label>
+      <label>Đến: <input type="number"></label>
+      <input type="submit" value="Lọc">
     </form>
   </div>
-  <div class="clearfix">
-  </div>
+  
   <div class="clolr-filter leftbar">
     <h3 class="title">
-      Color
+      Màu
     </h3>
+    {% set colors = ['red', 'yellow', 'black', 'pink', 'dkpink', 'chocolate', 'orange',
+    'off-white', 'extra-lightgreen', 'lightgreen', 'biscuit', 'chocolatelight'] %}
     <ul>
-      <li>
-        <a href="#" class="red-bg">
-          light red
-        </a>
-      </li>
-      <li>
-        <a href="#" class=" yellow-bg">
-          yellow"
-        </a>
-      </li>
-      <li>
-        <a href="#" class="black-bg ">
-          black
-        </a>
-      </li>
-      <li>
-        <a href="#" class="pink-bg">
-          pink
-        </a>
-      </li>
-      <li>
-        <a href="#" class="dkpink-bg">
-          dkpink
-        </a>
-      </li>
-      <li>
-        <a href="#" class="chocolate-bg">
-          chocolate
-        </a>
-      </li>
-      <li>
-        <a href="#" class="orange-bg">
-          orange-bg
-        </a>
-      </li>
-      <li>
-        <a href="#" class="off-white-bg">
-          off-white
-        </a>
-      </li>
-      <li>
-        <a href="#" class="extra-lightgreen-bg">
-          extra-lightgreen
-        </a>
-      </li>
-      <li>
-        <a href="#" class="lightgreen-bg">
-          lightgreen
-        </a>
-      </li>
-      <li>
-        <a href="#" class="biscuit-bg">
-          biscuit
-        </a>
-      </li>
-      <li>
-        <a href="#" class="chocolatelight-bg">
-          chocolatelight
-        </a>
-      </li>
+      {% for color in colors %}
+        <li><a href="/product/{{color}}" class="{{color}}-bg"></a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="clearfix">
   </div>
   <div class="product-tag leftbar">
     <h3 class="title">
-      Products
-      <strong>
-        Tags
-      </strong>
+      Nhãn
     </h3>
     <ul>
       <li>
