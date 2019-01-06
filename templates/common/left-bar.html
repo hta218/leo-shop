@@ -4,42 +4,41 @@
       Sản phẩm
     </h3>
     {% set categories = [
-      {'name': 'Điện Thoại', 'value': 'mobile'}, 
-      {'name': 'Tablet', 'value': 'tablet'}, 
-      {'name': 'Laptop', 'value': 'laptop'}, 
-      {'name': 'PC', 'value': 'pc'}, 
-      {'name': 'Phụ Kiện', 'value': 'equipment'}, 
-      {'name': 'Đồng Hồ', 'value': 'watch'}, 
+    {'name': 'Điện Thoại', 'value': 'mobile'},
+    {'name': 'Tablet', 'value': 'tablet'},
+    {'name': 'Laptop', 'value': 'laptop'},
+    {'name': 'PC', 'value': 'pc'},
+    {'name': 'Phụ Kiện', 'value': 'equipment'},
+    {'name': 'Đồng Hồ', 'value': 'watch'},
     ] %}
     <ul>
       {% for cat in categories %}
-        <li><a href="/product/{{cat.value}}">{{cat.name}}</a></li>
+      <li><a href="/product/{{cat.value}}">{{cat.name}}</a></li>
       {% endfor %}
     </ul>
   </div>
-  
+
   <div class="branch leftbar">
     <h3 class="title">
       Nhà cung cấp
     </h3>
     {% set brands = [
-      {'name': 'Apple', 'value': 'mobile'}, 
-      {'name': 'Oppo', 'value': 'tablet'}, 
-      {'name': 'Nokia', 'value': 'laptop'}, 
-      {'name': 'Huawei', 'value': 'pc'}, 
-      {'name': 'Xiaomi', 'value': 'equipment'}, 
-      {'name': 'Asus', 'value': 'watch'}, 
-      {'name': 'Dell', 'value': 'watch'}, 
-      {'name': 'Lenovo', 'value': 'watch'}, 
+    {'name': 'Apple', 'value': 'mobile'},
+    {'name': 'Oppo', 'value': 'tablet'},
+    {'name': 'Nokia', 'value': 'laptop'},
+    {'name': 'Huawei', 'value': 'pc'},
+    {'name': 'Xiaomi', 'value': 'equipment'},
+    {'name': 'Asus', 'value': 'watch'},
+    {'name': 'Dell', 'value': 'watch'},
+    {'name': 'Lenovo', 'value': 'watch'},
     ] %}
     <ul>
       {% for br in brands %}
-        <li><a href="/product/{{br.value}}">{{br.name}}</a></li>
+      <li><a href="/product/{{br.value}}">{{br.name}}</a></li>
       {% endfor %}
     </ul>
   </div>
-  <div class="clearfix">
-  </div>
+
   <div class="price-filter leftbar">
     <h3 class="title">Giá</h3>
     <form class="pricing">
@@ -48,7 +47,7 @@
       <input type="submit" value="Lọc">
     </form>
   </div>
-  
+
   <div class="clolr-filter leftbar">
     <h3 class="title">
       Màu
@@ -57,133 +56,36 @@
     'off-white', 'extra-lightgreen', 'lightgreen', 'biscuit', 'chocolatelight'] %}
     <ul>
       {% for color in colors %}
-        <li><a href="/product/{{color}}" class="{{color}}-bg"></a></li>
+      <li><a href="/product/{{color}}" class="{{color}}-bg"></a></li>
       {% endfor %}
     </ul>
   </div>
-  <div class="clearfix">
-  </div>
+
   <div class="product-tag leftbar">
     <h3 class="title">
       Nhãn
     </h3>
+    {% set tags = [
+    {'name': 'Ram 4GB', 'value': 'mobile'},
+    {'name': 'Khuyễn Mãi', 'value': 'tablet'},
+    {'name': 'Tặng tai nghe', 'value': 'laptop'},
+    {'name': 'Free Ship', 'value': 'pc'},
+    {'name': 'Ram 8GB', 'value': 'equipment'},
+    {'name': 'Bonus', 'value': 'watch'},
+    {'name': 'Tặng ba lô', 'value': 'watch'},
+    {'name': 'Ram 64GB', 'value': 'watch'},
+    ] %}
     <ul>
-      <li>
-        <a href="#">
-          Lincoln us
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          SDress for Girl
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Corner
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Window
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          PG
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Oscar
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Bath room
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          PSD
-        </a>
-      </li>
+      {% for tag in tags %}
+      <li><a href="/product/{{tag.name}}">{{tag.name}}</a></li>
+      {% endfor %}
     </ul>
   </div>
-  <div class="clearfix">
-  </div>
-  <div class="others leftbar">
-    <h3 class="title">
-      Others
-    </h3>
-  </div>
-  <div class="clearfix">
-  </div>
-  <div class="others leftbar">
-    <h3 class="title">
-      Others
-    </h3>
-  </div>
-  <div class="clearfix">
-  </div>
+
   <div class="fbl-box leftbar">
-    <h3 class="title">
-      Facebook
-    </h3>
-    <span class="likebutton">
-      <a href="#">
-        <img src="images/fblike.png" alt="">
-      </a>
-    </span>
-    <p>
-      12k people like Flat Shop.
-    </p>
-    <ul>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-        </a>
-      </li>
-    </ul>
-    <div class="fbplug">
-      <a href="#">
-        <span>
-          <img src="images/fbicon.png" alt="">
-        </span>
-        Facebook social plugin
-      </a>
+    <div class="fb-page" data-href="https://www.facebook.com/thegioididongcom" data-tabs="timeline" data-height="210px" data-small-header="false"
+      data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
     </div>
-  </div>
-  <div class="clearfix">
-  </div>
-  <div class="leftbanner">
-    <img src="images/banner-small-01.png" alt="">
   </div>
 </div>

@@ -7,6 +7,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
+a:hover{
+  text-decoration: none;
+}
+
 p{ line-height: 18px; }
 
 /* HTML5 display-role reset for older browsers */
@@ -1455,18 +1459,7 @@ form.newsletter input[type="submit"]:hover{
   position: absolute;
   pointer-events: none;
 }
-.view-mode a.active:after{
-  border-color: rgba(247, 84, 74, 0);
-  border-top-color: #f7544a;
-  border-width: 8px;
-  margin-left: -8px;
-}
-.view-mode a.active:before{
-  border-color: rgba(247, 84, 74, 0);
-  border-top-color: #f7544a;
-  border-width: 8px;
-  margin-left: -8px;
-}
+
 .bottom .view-mode a.active:after, .bottom .view-mode a.active:before{
   top: auto;
   bottom: 100%;
