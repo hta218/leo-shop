@@ -26,17 +26,13 @@
                     <div class="productname">{{ pro.name }}</div>
                     <h4 class="price">{{ pro.price }}</h4>
                     <div class="button_group">
-                      <button class="button add-cart" type="button">
-                        Add To Cart
-                      </button>
-                      <button class="button compare" type="button">
-                        <i class="fa fa-exchange">
-                        </i>
-                      </button>
-                      <button class="button wishlist" type="button">
-                        <i class="fa fa-heart-o">
-                        </i>
-                      </button>
+                      <button 
+                        class="button add-cart add-to-cart-btn" 
+                        type="button"
+                        data-product='{ "id" : "{{ pro.id }}", "name" : "{{ pro.name }}", "image" : "{{ pro.images[0] }}", "price": "{{ pro.price }}"}'
+                      >Thêm vào giỏ</button>
+                      <button class="button compare" type="button"><i class="fa fa-exchange"></i></button>
+                      <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button>
                     </div>
                   </div>
                 </div>

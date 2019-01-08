@@ -23,11 +23,13 @@ def index():
         feaProducts_1.append(featureProducts[i])
         feaProducts_2.append(featureProducts[i + 4])
 
+    cols=3
     return render_template('index.html',
                             hotProducts_1=hotProducts_1, 
                             hotProducts_2=hotProducts_2, 
                             feaProducts_1=feaProducts_1,
-                            feaProducts_2=feaProducts_2
+                            feaProducts_2=feaProducts_2,
+                            cols=3
                             )
 
 @app.route('/product/<cat>')
@@ -39,7 +41,20 @@ def category(cat):
 @app.route('/detail/<id>')
 def detail(id):
     product = Product.objects().with_id(id)
-    return render_template('product-detail.html', product=product)
+    hotProducts = Product.getHomeProducts()
+    hotProducts_1 = []
+    hotProducts_2 = []
+    cols = 4
+
+    for i in range(3):
+        hotProducts_1.append(hotProducts[i])
+        hotProducts_2.append(hotProducts[i + 3])
+
+    return render_template('product-detail.html', 
+                            product=product, 
+                            hotProducts_1=hotProducts_1, 
+                            hotProducts_2=hotProducts_2,
+                            cols=cols)
 
 if __name__ == '__main__':
     app.run(debug=True)

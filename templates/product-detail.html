@@ -14,7 +14,7 @@
               <div class="products-details">
                 <div class="preview_image">
                   <div class="preview-small">
-                    <img id="zoom_03" src="{{ product.images[0] }}" data-zoom-image="images/products/Large/products-01.jpg" alt="">
+                    <img id="zoom_03" src="{{ product.images[0] }}" data-zoom-image="{{ product.images[0] }}" alt="">
                   </div>
                   <div class="thum-image">
                     <ul id="gallery_01" class="prev-thum">
@@ -53,14 +53,17 @@
                   <div class="wided">
                     <div class="qty">
                       Số lượng: 
-                      <select>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
+                      <select id="leo-product-quantity">
+                          <option selected value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
                       </select>
                     </div>
                     <div class="button_group">
-                      <button class="button" >Thêm vào giỏ</button>
+                      <button class="button add-to-cart-btn" 
+                      data-product='{ "id" : "{{ product.id }}", "name" : "{{ product.name }}", "image" : "{{ product.images[0] }}", "price": "{{ product.price }}"}'>
+                        Thêm vào giỏ
+                      </button>
                       <button class="button favorite"><i class="fa fa-heart-o"></i></button>
                     </div>
                   </div>
@@ -247,7 +250,7 @@
                         Date: 01-01-2014
                       </p>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
+                        Lopng ipsum dolor sit amet, consectetur adipiscing elit. Integer a eros neque. In sapien est, malesuada non interdum id, cursus vel neque.
                       </p>
                     </div>
                     <div class="review">
@@ -286,286 +289,10 @@
               <div class="clearfix">
               </div>
               <div id="productsDetails" class="hot-products">
-                <h3 class="title">
-                  <strong>
-                    Hot
-                  </strong>
-                  Products
-                </h3>
-                <div class="control">
-                  <a id="prev_hot" class="prev" href="#">
-                    &lt;
-                  </a>
-                  <a id="next_hot" class="next" href="#">
-                    &gt;
-                  </a>
-                </div>
-                <ul id="hot">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-01.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-02.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-03.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-01.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-02.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-03.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            - %20
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-01.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-02.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="products">
-                          <div class="offer">
-                            New
-                          </div>
-                          <div class="thumbnail">
-                            <img src="images/products/small/products-03.png" alt="Product Name">
-                          </div>
-                          <div class="productname">
-                            Iphone 5s Gold 32 Gb 2013
-                          </div>
-                          <h4 class="price">
-                            $451.00
-                          </h4>
-                          <div class="button_group">
-                            <button class="button add-cart" type="button">
-                              Add To Cart
-                            </button>
-                            <button class="button compare" type="button">
-                              <i class="fa fa-exchange">
-                              </i>
-                            </button>
-                            <button class="button wishlist" type="button">
-                              <i class="fa fa-heart-o">
-                              </i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                <h3 class="title">Sản Phẩm <strong>Mới</strong></h3>
+                {% with list_id='hot', products_1=hotProducts_1, products_2=hotProducts_2 %}
+                {% include 'common/product-list.html' %}
+                {% endwith %}
               </div>
               <div class="clearfix">
               </div>
@@ -621,220 +348,11 @@
               </div>
             </div>
           </div>
-          <div class="clearfix">
-          </div>
-          <div class="our-brand">
-            <h3 class="title">
-              <strong>
-                Our 
-              </strong>
-              Brands
-            </h3>
-            <div class="control">
-              <a id="prev_brand" class="prev" href="#">
-                &lt;
-              </a>
-              <a id="next_brand" class="next" href="#">
-                &gt;
-              </a>
-            </div>
-            <ul id="braldLogo">
-              <li>
-                <ul class="brand_item">
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/envato.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/themeforest.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/photodune.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/activeden.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/envato.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <ul class="brand_item">
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/envato.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/themeforest.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/photodune.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/activeden.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="brand-logo">
-                        <img src="images/envato.png" alt="">
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          {% include 'common/brand.html' %}
         </div>
       </div>
-      <div class="clearfix">
-      </div>
-      <div class="footer">
-        <div class="footer-info">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="footer-logo">
-                  <a href="#">
-                    <img src="images/logo.png" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <h4 class="title">
-                  Contact 
-                  <strong>
-                    Info
-                  </strong>
-                </h4>
-                <p>
-                  No. 08, Nguyen Trai, Hanoi , Vietnam
-                </p>
-                <p>
-                  Call Us : (084) 1900 1008
-                </p>
-                <p>
-                  Email : michael@leebros.us
-                </p>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <h4 class="title">
-                  Customer
-                  <strong>
-                    Support
-                  </strong>
-                </h4>
-                <ul class="support">
-                  <li>
-                    <a href="#">
-                      FAQ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Payment Option
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Booking Tips
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Infomation
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-3">
-                <h4 class="title">
-                  Get Our 
-                  <strong>
-                    Newsletter 
-                  </strong>
-                </h4>
-                <p>
-                  Lorem ipsum dolor ipsum dolor.
-                </p>
-                <form class="newsletter">
-                  <input type="text" name="" placeholder="Type your email....">
-                  <input type="submit" value="SignUp" class="button">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="copyright-info">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <p>
-                  Copyright © 2012. Designed by 
-                  <a href="#">
-                    Michael Lee
-                  </a>
-                  . All rights reseved
-                </p>
-              </div>
-              <div class="col-md-6">
-                <ul class="social-icon">
-                  <li>
-                    <a href="#" class="linkedin">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="google-plus">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="twitter">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="facebook">
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
+      {% include 'common/footer.html' %}
     </div>
     {% include 'common/base-scripts.html' %}
   </body>

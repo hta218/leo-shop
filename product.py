@@ -1,3 +1,4 @@
+#coding=utf8
 from mongoengine import Document, StringField, ListField, IntField, BooleanField
 # import mlab
 
