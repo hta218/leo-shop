@@ -35,7 +35,6 @@ def index():
 @app.route('/product/<cat>')
 def category(cat):
     products = Product.getProductByCategory(cat)
-    print(products[0].to_mongo())
     return render_template('productgrid.html', products=products)
 
 @app.route('/detail/<id>')

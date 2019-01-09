@@ -7,22 +7,7 @@
     <div class="row">
       {% for pro in products_1 %}
       <div class="col-md-{{cols}} col-sm-6">
-        <div class="products">
-          <div class="offer">-{{ pro.offer }}%</div>
-          <div class="thumbnail"><a href="/detail/{{pro.id}}"><img src="{{ pro.images[0] }}" alt="Product Name"></a></div>
-          <div class="productname">{{pro.name}}</div>
-          <h4 class="price">{{pro.price}}</h4>
-          <div class="button_group">
-            <button 
-              class="button add-cart add-to-cart-btn" 
-              type="button"
-              data-product='{ "id" : "{{ pro.id }}", "name" : "{{ pro.name }}", "image" : "{{ pro.images[0] }}", "price": "{{ pro.price }}"}'
-            >Thêm vào giỏ</button>
-            <button class="button compare" type="button">
-              <i class="fa fa-exchange"></i>
-            </button>
-            <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
-        </div>
+          {% include 'common/base-product.html' %}
       </div>
       {% endfor %}
     </div>
@@ -32,17 +17,7 @@
     <div class="row">
       {% for pro in products_2 %}
       <div class="col-md-{{cols}} col-sm-6">
-        <div class="products">
-          <div class="offer">-{{ pro.offer }}%</div>
-          <div class="thumbnail"><a href="/detail/{{pro.id}}"><img src="{{ pro.images[0] }}" alt="Product Name"></a></div>
-          <div class="productname">{{pro.name}}</div>
-          <h4 class="price">{{pro.price}}</h4>
-          <div class="button_group">
-            <button class="button add-cart add-to-cart-btn" type="button">Thêm vào giỏ</button>
-            <button class="button compare" type="button"><i class="fa fa-exchange"></i></button>
-            <button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button>
-          </div>
-        </div>
+          {% include 'common/base-product.html' %}
       </div>
       {% endfor %}
     </div>

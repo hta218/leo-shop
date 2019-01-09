@@ -31,7 +31,7 @@ jQuery(document).ready(function () {
     updateUICart($, cart)
   })
 
-  $('#leo-shop-cart').on('click', function() {
+  $('#leo-shop-cart').hover(function() {
     let cart = localStorage.getItem('leo-shop-cart')  
 
     if(cart) {
@@ -64,17 +64,28 @@ const updateUICart = ($, cart) => {
 
 const renderCart = ($, cart) => {
   let $itemForm = $('#leo-cart-item-form')
+  const $cartTotal = $('#leo-cart-total')
+  let totalMoney = 0
   const $cartList = $('#leo-cart-list-header')
+
+  $cartList.empty()
 
   cart.map(pro => {
     let $item = $itemForm.clone(true) // true: deep clone
     $item.find('.leo-pro-image').attr('src', pro.image)
     $item.find('.name').text(pro.name)
     $item.find('.leo-pro-quantity').text(pro.quantity)
-    $item.find('.price').text(pro.price)
+    $item.find('.price').text(formatMoney(pro.price * pro.quantity))
     $item.css('display', 'block')
     
     $cartList.append($item)
+    totalMoney += pro.price * pro.quantity
   })
+
+  $cartTotal.find('strong').text(formatMoney(totalMoney))
+  $cartList.append($cartTotal)
+  // $cartList.css('display', 'block')
 }
+
+const formatMoney = intMoney => parseInt(intMoney).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.0', 'đ')
 

@@ -538,7 +538,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
   padding: 10px;
   background: #fff;
   z-index: 10000;
-  /* display: none; */
+  display: none;
 }
 .option-cart:hover .option-cart-item{
   display: block;
@@ -569,7 +569,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
 }
 .cart-item .item-description{
   float: left;
-  width: 130px;
+  width: 190px;
   padding-left: 15px;
 }
 .cart-item .item-description .name{
@@ -593,17 +593,19 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
   padding: 5px;
 }
 .cart-item .price{
-  font-size: 15px;
+  float: right;
 }
 .option-cart-item .total{
+  display: block;
+  width: 100%;
   float: left;
-  margin-left: 5px;
+  margin-bottom: 10px;
   vertical-align: middle;
-  font-size: 13px;
+  font-size: 18px;
   padding-top: 10px;
-  text-transform: uppercase;
 }
 .option-cart-item .total strong{
+  float: right;
   margin-left: 15px;
   font-size: 18px;
   color: #f7544a;
@@ -880,8 +882,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
 .offer{
   position: absolute;
   right: 15px;
-  top: 15px;
-  z-index: 99;
+  top: -30px;
   padding: 10px;
   font-size: 18px;
   color: #fff;
