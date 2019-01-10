@@ -1536,6 +1536,11 @@ form.newsletter input[type="submit"]:hover{
   margin-top: 10px;
   position: relative;
 }
+.preview-small > div {
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+}
 .preview-small img{
   margin: 0 auto;
   max-height: 219px;

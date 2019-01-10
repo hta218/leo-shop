@@ -19,3 +19,8 @@
   line-height: 18px;
   padding-left: 15px;
 }
+
+.leo-checkout-info {
+  display: flex;
+  justify-content: center;
+}
