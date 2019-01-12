@@ -24,3 +24,153 @@
   display: flex;
   justify-content: center;
 }
+
+#leo-checkout-pannel {
+  float: left;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.leo-checkout-product-img {
+  max-width: 120px;
+}
+
+.leo-checkout-title {
+  float: left;
+  width: 100%;
+  padding: 15px 25px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 20px;
+}
+
+.leo-checkout-product-name {
+  font-weight: bold;
+  font-size: 19px;
+  color: rgb(24, 24, 24);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  width: 62%;
+}
+
+.leo-checkout-offer {
+  list-style-type: disc;
+  padding-left: 18px;
+  margin-top: 10px;
+  line-height: 1.75;
+}
+
+.leo-checkout-product-price {
+  text-align: right;
+  font-size: 1.15em;
+  color: #ff3636;
+}
+
+.leo-checkout-inc-qty {
+  float: right;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.leo-checkout-inc-qty::before{
+  content: '';
+  width: 12px;
+  height: 2px;
+  background: #ccc;
+  display: block;
+  margin: 15px auto;
+}
+
+.leo-checkout-dec-qty {
+  float: right;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+}
+
+.leo-checkout-dec-qty::before {
+  content: '';
+  width: 12px;
+  height: 2px;
+  background: #288ad6;
+  display: block;
+  margin: 15px auto;
+}
+
+.leo-checkout-dec-qty::after {
+  content: '';
+  width: 2px;
+  height: 12px;
+  background: #288ad6;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+}
+
+.leo-checkout-qty {
+  border: 1px solid #dfdfdf;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  float: right;
+  text-align: center;
+  line-height: 32px;
+}
+
+.float-right {
+  float: right;
+}
+
+.leo-checkout-qty-panel {
+  margin: 10px 0px;
+}
+
+.leo-checkout-qty-panel .float-right {
+  padding-right: 0px;
+}
+
+.leo-checkout-remove-pro {
+  text-align: center;
+  margin-top: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.leo-checkout-remove-pro i {
+  margin-right: 5px;
+}
+
+.product-checkout-form {
+  margin-bottom: 30px;
+  display: none;
+}
+
+#leo-checkout-total {
+  font-size: 17px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding: 20px;
+}
+
+.leo-checkout-total-money {
+  font-weight: bold;
+  color: #ff3636;
+  font-size: 20px;
+}

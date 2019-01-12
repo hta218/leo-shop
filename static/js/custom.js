@@ -36,7 +36,7 @@ jQuery(document).ready(function () {
 
     if(cart) {
       cart = JSON.parse(cart)
-      renderCart($, cart)
+      renderHeaderCart($, cart)
     }
   })
 })
@@ -62,7 +62,7 @@ const updateUICart = ($, cart) => {
   $cart.find('.cart_no').text(cartNo)
 }
 
-const renderCart = ($, cart) => {
+const renderHeaderCart = ($, cart) => {
   let $itemForm = $('#leo-cart-item-form')
   const $cartTotal = $('#leo-cart-total')
   let totalMoney = 0
@@ -84,7 +84,6 @@ const renderCart = ($, cart) => {
 
   $cartTotal.find('strong').text(formatMoney(totalMoney))
   $cartList.append($cartTotal)
-  // $cartList.css('display', 'block')
 }
 
 const formatMoney = intMoney => parseInt(intMoney).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.0', 'đ')

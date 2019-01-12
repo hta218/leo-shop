@@ -1,108 +1,80 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% include 'common/meta-data.html' %}
-  </head>
-  <body>
-    <div class="wrapper">
-      {% include 'common/header.html' %}
-      <div class="clearfix">
-      </div>
-      <div class="container_fullwidth">
-        <div class="container">
-          <div class="row leo-checkout-info">
-            <div class="col-md-9">
-              <div class="checkout-page">
-                <ol class="checkout-steps">
-                  <li class="steps active">
-                    <a href="checkout.html" class="step-title">
-                      01. checkout opition
-                    </a>
-                    <div class="step-description">
-                      <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                          <div class="new-customer">
-                            <h5>
-                              New Customer
-                            </h5>
-                            <label>
-                              <span class="input-radio">
-                                <input type="radio" name="user">
-                              </span>
-                              <span class="text">
-                                I wish to subscribe to the Herbal Store newsletter.
-                              </span>
-                            </label>
-                            <label>
-                              <span class="input-radio">
-                                <input type="radio" name="user">
-                              </span>
-                              <span class="text">
-                                My delivery and billing addresses are the same.
-                              </span>
-                            </label>
-                            <p class="requir">
-                              By creating an account you will be able to shop faste be up to date on an order's status, and keep track of the orders you have previously made.
-                            </p>
-                            <button>
-                              Continue
-                            </button>
-                          </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <div class="run-customer">
-                            <h5>
-                              Rerunning Customer
-                            </h5>
-                            <form>
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Email 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div>
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Password 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div>
-                              <p class="forgoten">
-                                <a href="#">
-                                  Forgoten your password?
-                                </a>
-                              </p>
-                              <button>
-                                Login
-                              </button>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'common/meta-data.html' %}
+</head>
+
+<body>
+  <div class="wrapper">
+    {% include 'common/header.html' %}
+    <div class="clearfix">
+    </div>
+    <div class="container_fullwidth">
+      <div class="container">
+        <div class="row leo-checkout-info">
+          <div class="col-md-9">
+            <div class="" id="leo-checkout-pannel">
+              <h4 class="leo-checkout-title">Giỏ hàng của bạn</h4>
+              <div class="product-checkout-form col-md-12">
+                <div>
+                  <div class="col-md-2">
+                    <img src="https://cdn.tgdd.vn/Products/Images/42/106211/samsung-galaxy-note-8-black-200-180x120.png"
+                      alt="" class="leo-checkout-product-img">
+                    <div class="leo-checkout-remove-pro">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i><span>Xóa</span>
                     </div>
-                  </li>
-                </ol>
+                  </div>
+                  <div class="col-md-8">
+                    <h5 class="leo-checkout-product-name">Samsung Galaxy Note 8</h5>
+                    <div class="promotion  webnote">
+                      <ul class="leo-checkout-offer">
+                        <li class="pro468854">
+                          Sạc dự phòng 5000mAh (Áp dụng từ 11/1) <label class="infoend">(đến 31/01)</label>
+                        </li>
+                        <li class="pro467740">
+                          Cơ hội trúng 61 xe Wave Alpha khi trả góp Home Credit <label class="infoend">(đến 31/01)</label>
+                        </li>
+                        <li class="pro467778">
+                          Cơ hội trúng 99 lượng vàng 9999 khi mua điện thoại Samsung <label class="infoend">(đến 05/02)</label>
+                        </li>
+                        <li class="pro468133">
+                          Ưu đãi trả góp 0% qua thẻ tín dụng 
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-2 leo-checkout-product-price">37.990.000đ</div>
+                </div>
+                <div class="col-md-12 leo-checkout-qty-panel">
+                    <div class="col-md-3 float-right">
+                      <span style="line-height: 32px;">Số lượng: </span>
+                      <div class="leo-checkout-dec-qty"></div>
+                      <span class="leo-checkout-qty">1</span>
+                      <div class="leo-checkout-inc-qty"></div>
+                    </div>
+                </div>
+              </div>
+              <div id="leo-checkout-total" class="col-md-12">
+                <span>Tổng tiền: </span>
+                <span class="leo-checkout-total-money float-right"></span>
               </div>
             </div>
           </div>
-          <div class="clearfix">
-          </div>
+        </div>
+        <div class="clearfix">
         </div>
       </div>
-      <div class="clearfix">
-      </div>
-      {% include 'common/footer.html' %}
     </div>
-    {% include 'common/base-scripts.html' %}
-  </body>
+    <div class="clearfix">
+    </div>
+    {% include 'common/footer.html' %}
+  </div>
+  {% include 'common/base-scripts.html' %}
+  <script src="../static/js/checkout.js"></script>
+</body>
+
 </html>
