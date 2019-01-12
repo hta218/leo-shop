@@ -30,7 +30,7 @@
   width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .leo-checkout-product-img {
@@ -165,7 +165,6 @@
 #leo-checkout-total {
   font-size: 17px;
   border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
   padding: 20px;
 }
 
@@ -174,4 +173,17 @@
   font-weight: bold;
   color: #ff3636;
   font-size: 20px;
+}
+
+#leo-checkout-form {
+  padding: 20px;
+}
+
+#leo-checkout-form label {
+  margin-bottom: 8px;
+}
+
+#leo-checkout-form input {
+  padding: 6px 12px;
+  border-radius: 0.25rem;
 }

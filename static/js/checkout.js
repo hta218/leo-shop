@@ -28,7 +28,7 @@ const renderCheckoutCart = ($, cart) => {
     $checkoutPanel.append($item)
     totalMoney += pro.price * pro.quantity
   })
-  console.log(totalMoney)
+  
   $cartTotal.find('.leo-checkout-total-money').text(formatMoney(totalMoney))
   $checkoutPanel.append($cartTotal)
 }
