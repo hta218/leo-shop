@@ -1,6 +1,8 @@
 from product import Product
 from flask import *
 import mlab
+import json
+from order import Order
 
 app = Flask(__name__)
 mlab.connect()
@@ -69,8 +71,21 @@ def checkout():
         district = form['district']
         province = form['province']
         payment = form['payment']
+        cart = json.loads(form['leo_cart'])
 
-        print(name, phone_number, email, address, district, province, payment, requirement)
+        print('=====================>', name)
+
+        Order.createOrder({
+            'customer_name': name,
+            'phone_number': phone_number,
+            'email': email,
+            'requirement': requirement,
+            'address': address,
+            'district': district,
+            'province': province,
+            'payment': payment,
+            'cart': cart,
+        })
 
         return 'done'
 

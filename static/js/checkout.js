@@ -1,19 +1,17 @@
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
   const $ = jQuery
   console.log('checkout script loaded!')
 
-  let cart = localStorage.getItem('leo-shop-cart')  
-  if(cart) {
+  let cart = localStorage.getItem('leo-shop-cart')
+  if (cart) {
     cart = JSON.parse(cart)
+    const savedCart = cart.map(pro => {return { id: pro.id, quantity: pro.quantity }})
+
+    $('input[name="leo_cart"]').attr('value', JSON.stringify(savedCart))
     renderCheckoutCart($, cart)
   } else {
     // render null
   }
-
-  $('#leo-checkout-submit').on('click', e => {
-    e.preventDefault()
-    console.log('Doing st...')
-  })
 })
 
 const renderCheckoutCart = ($, cart) => {
@@ -29,11 +27,11 @@ const renderCheckoutCart = ($, cart) => {
     $item.find('.leo-checkout-qty').text(pro.quantity)
     $item.find('.leo-checkout-product-price').text(formatMoney(pro.price * pro.quantity))
     $item.css('display', 'block')
-    
+
     $checkoutPanel.append($item)
     totalMoney += pro.price * pro.quantity
   })
-  
+
   $cartTotal.find('.leo-checkout-total-money').text(formatMoney(totalMoney))
   $checkoutPanel.append($cartTotal)
 }
