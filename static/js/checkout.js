@@ -9,6 +9,11 @@ jQuery(document).ready(function() {
   } else {
     // render null
   }
+
+  $('#leo-checkout-submit').on('click', e => {
+    e.preventDefault()
+    console.log('Doing st...')
+  })
 })
 
 const renderCheckoutCart = ($, cart) => {
@@ -31,4 +36,8 @@ const renderCheckoutCart = ($, cart) => {
   
   $cartTotal.find('.leo-checkout-total-money').text(formatMoney(totalMoney))
   $checkoutPanel.append($cartTotal)
+}
+
+const handleCheckout = $ => {
+
 }

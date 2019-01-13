@@ -1,5 +1,5 @@
 from product import Product
-from flask import Flask, render_template
+from flask import *
 import mlab
 
 app = Flask(__name__)
@@ -55,9 +55,24 @@ def detail(id):
                             hotProducts_2=hotProducts_2,
                             cols=cols)
 
-@app.route('/checkout')
+@app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    return render_template('checkout.html')
+    if request.method == 'GET':
+        return render_template('checkout.html')
+    elif request.method == 'POST':
+        form = request.form
+        name = form['name']
+        phone_number = form['phone_number']
+        email = form['email']
+        requirement = form['requirement']
+        address = form['address']
+        district = form['district']
+        province = form['province']
+        payment = form['payment']
+
+        print(name, phone_number, email, address, district, province, payment, requirement)
+
+        return 'done'
 
 if __name__ == '__main__':
     app.run(debug=True)

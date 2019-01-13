@@ -1359,7 +1359,7 @@ form.newsletter input[type="submit"]:hover{
   border: 1px solid #f7544a;
   background: #f7544a;
   color: #fff;
-  padding: 0 103px;
+  width: 100%;
 }
 .clolr-filter{
   position: relative;

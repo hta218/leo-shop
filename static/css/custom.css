@@ -1,3 +1,7 @@
+.d-none {
+  display: none;
+}
+
 #home-slider img {
   object-fit: cover;
   max-height: 100%;
@@ -186,4 +190,13 @@
 #leo-checkout-form input {
   padding: 6px 12px;
   border-radius: 0.25rem;
+}
+
+#leo-checkout-form button[type='submit'] {
+  width: 100%;
+  text-transform: uppercase;
+}
+
+#leo-checkout-form select {
+  margin-left: 0px;
 }

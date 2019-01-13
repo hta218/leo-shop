@@ -1,22 +1,22 @@
-<form id="leo-checkout-form">
+<form id="leo-checkout-form" method="POST">
   <h4 class="leo-checkout-title">Thông tin khách hàng</h4>
 
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Họ và tên</label>
-      <input type="text" class="form-control" placeholder="Họ tên khách hàng">
+      <input type="text" class="form-control" name='name' placeholder="Họ tên khách hàng" required>
     </div>
     <div class="form-group col-md-6">
       <label>Số điện thoại</label>
-      <input type="number" class="form-control" placeholder="0123456789">
+      <input type="number" class="form-control" name='phone_number' placeholder="0123456789" required>
     </div>
     <div class="form-group col-md-12">
       <label>Email</label>
-      <input type="email" class="form-control" placeholder="Email">
+      <input type="email" class="form-control" placeholder="Email" name='email' required>
     </div>
     <div class="form-group col-md-12">
       <label>Yêu cầu thêm</label>
-      <input type="text" class="form-control" placeholder="Thời gian nhận, cách bọc hàng...">
+      <input type="text" class="form-control" name='requirement' placeholder="Thời gian nhận, cách bọc hàng...">
     </div>
 
   </div>
@@ -27,24 +27,32 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label>Địa chỉ nhận hàng</label>
-      <input type="text" class="form-control" placeholder="Số nhà, Tên Đường">
+      <input type="text" class="form-control" placeholder="Số nhà, Tên đường" required name='address'>
     </div>
     <div class="form-group col-md-6">
       <label>Quận/huyện</label>
-      <input type="text" class="form-control" placeholder="Quận, Huyện">
+      <input type="text" class="form-control" placeholder="Quận, Huyện" required name='district'>
     </div>
     <div class="form-group col-md-6">
       <label>Tỉnh/thành phố</label>
-      <input type="text" class="form-control" placeholder="Tỉnh, Thành phố">
+      <input type="text" class="form-control" placeholder="Tỉnh, Thành phố" required name='province'>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label>Hình thức thanh toán</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
+      <select class="form-control" required name='payment'>
+        <option selected value="offline">Thanh toán khi nhận hàng</option>
+        <option value="online">Thanh toán online</option>
       </select>
     </div>
   </div>
+  <div class="form-row">
+    <input type="text" class="d-none" name='cart'>
+    <div class="form-group col-md-12">
+      <button type="submit" class="btn btn-success col-md-12" id="leo-checkout-submit">
+        <i class="fa fa-shopping-cart" style="margin-right: 5px;"></i>
+        Đặt hàng
+      </button>
+    </div>
+  </div>
 
-  <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
