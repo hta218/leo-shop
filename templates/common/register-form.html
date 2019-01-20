@@ -3,8 +3,41 @@
 <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="border: 0px;" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">Đăng kí</h4>
+      </div>
       <div class="modal-body">
-        
+        <div class="panel panel-default" style="border: 0px; margin-bottom: 10px;">
+          <div class="panel-body">
+            <form>
+              <div class="input-group login-userinput">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="name"
+                  placeholder="Họ tên">
+              </div>
+              <div class="input-group login-userinput">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                
+              </div>
+              <div class="input-group login-userinput">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="email"
+                  placeholder="Email">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                <input id="txtPassword" type="text" class="form-control" style="border-radius: 3px;" name="phone_number"
+                  placeholder="Số điện thoại">
+              </div>
+              <button class="btn btn-primary btn-block login-button" type="submit">
+                <i class="fa fa-sign-in"></i> &nbsp;
+                Đăng kí
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
