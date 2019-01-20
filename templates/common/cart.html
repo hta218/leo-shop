@@ -1,5 +1,5 @@
 <li class="option-cart">
-   <a href="#" class="cart-icon" id="leo-shop-cart"><span class="cart_no"></span></a>
+   <a href="#" class="cart-icon" id="leo-shop-cart"><span class="cart_no" id='leo-cart-header-no'></span></a>
    <ul class="option-cart-item" id="leo-cart-list-header">
       <li id="leo-cart-item-form" style="display: none;">
          <div class="cart-item">
@@ -11,10 +11,9 @@
                   <span class="price">$30.00</span>
                </p>
             </div>
-
          </div>
       </li>
-      <li id="leo-cart-total">
+      <li id="leo-cart-total" style="display: none;">
          <span class="total" id="leo-cart-total">
             <span>Tổng: </span>
             <strong>$60.00</strong>
@@ -23,5 +22,6 @@
          <br>
          <button class="checkout" onClick="location.href='/checkout'">Thanh toán</button>
       </li>
+      <h3>Giỏ hàng đang trống!</h3>
    </ul>
 </li>

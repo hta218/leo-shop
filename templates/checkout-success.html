@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'common/meta-data.html' %}
+</head>
+
+<body>
+  <div class="wrapper">
+    {% include 'common/header.html' %}
+    <div class="clearfix">
+    </div>
+    <div class="container_fullwidth">
+      <div class="container">
+        <div class="row leo-checkout-info">
+          <div class="col-md-9">
+            <h2 style="margin: 50px 0px; text-align: center; font-size: 25px;">
+              Đơn hàng của bạn đã được đặt thành công!
+              <br>
+              Xin vui lòng kiểm tra email để xem thông tin chi tiết!
+            </h2>
+            <h3 class="title">Sản Phẩm <strong>Mới</strong></h3>
+            <div style="position: relative;">
+              {% with list_id='hot', products_1=hotProducts_1, products_2=hotProducts_2 %}
+              {% include 'common/product-list.html' %}
+              {% endwith %}
+            </div>
+          </div>
+        </div>
+        <div class="clearfix">
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    {% include 'common/footer.html' %}
+  </div>
+  <script>
+    window.onload = () => {
+      localStorage.removeItem('leo-shop-cart')
+      document.querySelector('#leo-cart-header-no').textContent = ''
+    }
+  </script>
+  {% include 'common/base-scripts.html' %}
+</body>
+
+</html>

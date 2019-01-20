@@ -63,7 +63,7 @@ def checkout():
         return render_template('checkout.html')
     elif request.method == 'POST':
         form = request.form
-        name = form['name']
+        customer_name = form['name']
         phone_number = form['phone_number']
         email = form['email']
         requirement = form['requirement']
@@ -73,25 +73,37 @@ def checkout():
         payment = form['payment']
         cart = json.loads(form['leo_cart'])
 
-        print('=====================>', name)
+        Order.createOrder(
+            customer_name, phone_number, email,
+            requirement, address, district, province,
+            payment, cart
+        )
 
-        Order.createOrder({
-            'customer_name': name,
-            'phone_number': phone_number,
-            'email': email,
-            'requirement': requirement,
-            'address': address,
-            'district': district,
-            'province': province,
-            'payment': payment,
-            'cart': cart,
-        })
+        return redirect('/checkout-success')
 
-        return 'done'
+@app.route('/checkout-success')
+def checkout_success():
+    hotProducts = Product.getHomeProducts()
+    hotProducts_1 = []
+    hotProducts_2 = []
+    cols = 4
+
+    for i in range(3):
+        hotProducts_1.append(hotProducts[i])
+        hotProducts_2.append(hotProducts[i + 3])
+
+    return render_template('checkout-success.html', 
+                            hotProducts_1=hotProducts_1, 
+                            hotProducts_2=hotProducts_2,
+                            cols=cols)
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

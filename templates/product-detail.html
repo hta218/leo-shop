@@ -290,9 +290,11 @@
               </div>
               <div id="productsDetails" class="hot-products">
                 <h3 class="title">Sản Phẩm <strong>Mới</strong></h3>
-                {% with list_id='hot', products_1=hotProducts_1, products_2=hotProducts_2 %}
-                {% include 'common/product-list.html' %}
-                {% endwith %}
+                <div>
+                  {% with list_id='hot', products_1=hotProducts_1, products_2=hotProducts_2 %}
+                  {% include 'common/product-list.html' %}
+                  {% endwith %}
+                </div>
               </div>
               <div class="clearfix">
               </div>

@@ -1,0 +1,37 @@
+<li><a class="log" data-toggle="modal" data-target="#login-form">Đăng nhập</a></li>
+<!-- Modal -->
+<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" style="width: 300px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="border: 0px;" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">Đăng nhập</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+        <div class="login-form">
+          <div class="panel panel-default" style="border: 0px; margin-bottom: 10px;">
+            <div class="panel-body">
+              <form>
+                <div class="input-group login-userinput">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                  <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="username" placeholder="Email">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                  <input id="txtPassword" type="password" class="form-control" style="border-radius: 3px;" name="password" placeholder="Mật khẩu">
+                </div>
+                <div class="checkbox login-options">
+                  <label><input type="checkbox"/>Nhớ mật khẩu</label>
+                </div>
+                <button class="btn btn-primary btn-block login-button" type="submit">
+                  <i class="fa fa-sign-in"></i> &nbsp;
+                  Đăng nhập
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

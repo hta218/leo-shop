@@ -43,6 +43,9 @@ jQuery(document).ready(function () {
 
 const initCart = $ => {
   let cart = localStorage.getItem('leo-shop-cart')
+
+  console.log(6969, cart)
+
   if (cart) {
     cart = JSON.parse(cart)
     const $cart = $('#leo-shop-cart')
@@ -83,6 +86,7 @@ const renderHeaderCart = ($, cart) => {
   })
 
   $cartTotal.find('strong').text(formatMoney(totalMoney))
+  $cartTotal.css('display', 'block')
   $cartList.append($cartTotal)
 }
 
