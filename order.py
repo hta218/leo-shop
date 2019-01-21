@@ -20,7 +20,9 @@ class Order(Document):
   payment = StringField()
   cart = ListField()
   total = IntField()
+  display_total = StringField()
   time = DateTimeField()
+  display_time = StringField()
 
 
   @classmethod
@@ -56,11 +58,16 @@ class Order(Document):
                       .replace('{{pro_price}}', str(curr_pro.display_price)) \
 
         cart_html += pro_html
-    
+
+    display_total = formatMoney(total)
+    display_time = str(time.strftime("%H:%M %p - %d/%m/%Y"))
+
+    #### MUST BE IN ORDER - FUCK Python
     new_order = Order(
       customer_name, phone_number, email,
       requirement, address, district,
-      province, payment, cart, total, time
+      province, payment, cart, total, display_total, time,
+      display_time
     )
 
     new_order.save()
@@ -70,8 +77,8 @@ class Order(Document):
                   .replace('{{customer_name}}', customer_name) \
                   .replace('{{order_id}}', str(new_order.id)) \
                   .replace('{{order_cart}}', cart_html) \
-                  .replace('{{order_total}}', formatMoney(total)) \
-                  .replace('{{order_time}}', str(time.strftime("%H:%M %p - %d/%m/%Y"))) \
+                  .replace('{{order_total}}', display_total) \
+                  .replace('{{order_time}}', display_time) \
                   .replace('{{order_payment_method}}', payment_in_mail) \
                   .replace('{{order_address}}', "{0}, {1}, {2}".format(address, district, province))
 

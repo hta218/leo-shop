@@ -135,8 +135,20 @@ def logout():
 
 @app.route('/admin')
 def admin():
-    products = Product.objects(category='mobile')
-    return render_template('admin/index.html', products=products)
+    model = request.args.get('model')
+
+    if model == 'product':
+        products = Product.objects(category='mobile')
+        return render_template('admin/index.html', products=products)
+    elif model == 'user':
+        users = User.objects()
+        return render_template('admin/admin-user.html', users=users)
+    elif model == 'order':
+        orders = Order.objects()
+        return render_template('admin/admin-order.html', orders=orders)
+    else:
+        products = Product.objects(category='mobile')
+        return render_template('admin/index.html', products=products)
         
 @app.route('/admin/add-product', methods=['GET', 'POST'])
 def add_product():
@@ -152,7 +164,7 @@ def delete_product(pro_id):
     pro = Product.objects.with_id(pro_id)
     if pro is not None:
         pro.delete()
-        
+
     return redirect('/admin')
 
 if __name__ == '__main__':
