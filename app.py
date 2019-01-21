@@ -136,9 +136,12 @@ def logout():
 @app.route('/admin')
 def admin():
     model = request.args.get('model')
+    category = request.args.get('category')
+    if category is None:
+        category = 'mobile'
 
     if model == 'product':
-        products = Product.objects(category='mobile')
+        products = Product.objects(category=category)
         return render_template('admin/index.html', products=products)
     elif model == 'user':
         users = User.objects()
