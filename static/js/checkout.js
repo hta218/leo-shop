@@ -41,7 +41,6 @@ const handleProductClick = (e, $) => {
   cart = JSON.parse(cart)
 
   let currQty
-  let totalMoney
 
   const $pro = $(e.currentTarget)
   const productId = $pro.attr('leo-data-product-id')
@@ -51,6 +50,16 @@ const handleProductClick = (e, $) => {
   switch (clickData) {
     case 'remove':
       console.log('remove')
+      cart = cart.filter(pro => pro.id !== productId)
+      updateTotalMoney(cart)
+      setSavedCart(cart)
+      localStorage.setItem('leo-shop-cart', JSON.stringify(cart))
+      $pro.remove()
+
+      // update in header
+      let cartNo = cart.length
+      cartNo = cartNo > 9 ? cartNo : '0' + cartNo
+      $('#leo-cart-header-no').text(cartNo)
       break
     case 'inc':
       currQty = parseInt($pro.find('.leo-checkout-qty').text())
@@ -58,17 +67,12 @@ const handleProductClick = (e, $) => {
       $pro.find('.leo-checkout-inc-qty').removeClass('pointer-event-none')
       if (currQty === 4) $target.addClass('pointer-event-none')
 
-      totalMoney = 0
       cart = cart.map(pro => {
-        if (pro.id === productId) {
-          pro.quantity = currQty + 1
-        }
-        totalMoney += pro.price * pro.quantity
+        if (pro.id === productId) pro.quantity = currQty + 1
         return pro
       })
 
-      console.log(cart)
-      $('#leo-checkout-total').find('.leo-checkout-total-money').text(formatMoney(totalMoney))
+      updateTotalMoney(cart)
       setSavedCart(cart)
       localStorage.setItem('leo-shop-cart', JSON.stringify(cart))
 
@@ -79,17 +83,12 @@ const handleProductClick = (e, $) => {
       $pro.find('.leo-checkout-dec-qty').removeClass('pointer-event-none')
       if (currQty === 2) $target.addClass('pointer-event-none')
 
-      totalMoney = 0
       cart = cart.map(pro => {
-        if (pro.id === productId) {
-          pro.quantity = currQty - 1
-        }
-        totalMoney += pro.price * pro.quantity
+        if (pro.id === productId) pro.quantity = currQty - 1
         return pro
       })
 
-      console.log(cart)
-      $('#leo-checkout-total').find('.leo-checkout-total-money').text(formatMoney(totalMoney))
+      updateTotalMoney(cart)
       setSavedCart(cart)
       localStorage.setItem('leo-shop-cart', JSON.stringify(cart))
       break
@@ -101,4 +100,14 @@ const handleProductClick = (e, $) => {
 const setSavedCart = cart => {
   const savedCart = cart.map(pro => { return { id: pro.id, quantity: pro.quantity } })
   jQuery('input[name="leo_cart"]').attr('value', JSON.stringify(savedCart))
+}
+
+const updateTotalMoney = (cart, productId, currQty) => {
+  let totalMoney = 0
+  cart = cart.map(pro => {
+    totalMoney += pro.price * pro.quantity
+    return pro
+  })
+  console.log(cart)
+  jQuery('#leo-checkout-total').find('.leo-checkout-total-money').text(formatMoney(totalMoney))
 }

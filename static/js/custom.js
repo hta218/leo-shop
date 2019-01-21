@@ -13,7 +13,6 @@ jQuery(document).ready(function () {
     product.quantity = quantity
 
     let cart = localStorage.getItem('leo-shop-cart')
-    let checkout = localStorage.getItem('leo-shop-checkout')
 
     if (!cart) cart = []
     else cart = JSON.parse(cart)
@@ -21,7 +20,7 @@ jQuery(document).ready(function () {
     let foundPro = false
     cart.map(pro => {
       if (pro.id === product.id) {
-        pro.quantity += quantity
+        // pro.quantity += quantity
         foundPro = true
       }
     })
@@ -30,6 +29,7 @@ jQuery(document).ready(function () {
 
     localStorage.setItem('leo-shop-cart', JSON.stringify(cart))
     updateUICart($, cart)
+    $(this).text('Đã thêm').addClass('pointer-event-none')
   })
 
   $('#leo-shop-cart').hover(function () {
@@ -94,7 +94,6 @@ const initCart = $ => {
     const cartNo = length > 9 ? length : '0' + length
 
     $cart.find('.cart_no').text(cartNo)
-
   }
 }
 

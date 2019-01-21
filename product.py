@@ -38,27 +38,32 @@ class Product(Document):
       return hotProducts
 
     @classmethod
-    def search(cls, search_type, value):
+    def search(cls, cat, search_type, value, sort):
+      products = Product.objects(category=cat)
+
       if search_type == 'brand':
-        products = Product.objects(brand=value)
+        products = Product.objects(category=cat, brand=value)
       elif search_type == 'price':
         prices = value.split('-')
         floor = int(prices[0])
         ceil = int(prices[1])
-        products = Product.objects(price__gte=floor, price__lte=ceil)
+        products = Product.objects(category=cat, price__gte=floor, price__lte=ceil)
       elif search_type == 'color':
-        products = Product.objects(colors=value)
+        products = Product.objects(category=cat, colors=value)
       elif search_type == 'tag':
-        products = Product.objects(tags=value)
+        products = Product.objects(category=cat, tags=value)
       elif search_type == 'name':
-        products = Product.objects(name__icontains=value)
+        products = Product.objects(category=cat, name__icontains=value)
 
-      products = products.order_by('-id').limit(9).skip(0).fields(images=1, 
-                                                                  name=1, 
-                                                                  price=1, 
-                                                                  display_price=1,
-                                                                  new=1, 
-                                                                  offer=1)
+      if sort is not None:
+        products = products.order_by(sort, '-id')
+
+      products = products.limit(9).skip(0).fields(images=1, 
+                                                  name=1, 
+                                                  price=1, 
+                                                  display_price=1,
+                                                  new=1, 
+                                                  offer=1)
       return products
 
     @classmethod

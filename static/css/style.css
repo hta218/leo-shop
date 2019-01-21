@@ -1479,7 +1479,7 @@ form.newsletter input[type="submit"]:hover{
 }
 .sort-by, .limiter{
   float: left;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   font-size: 13px;
 }
 .sort-by select, .limiter select, select{

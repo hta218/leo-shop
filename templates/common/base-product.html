@@ -1,6 +1,8 @@
 <div class="products">
   <div class="thumbnail">
-    <div class="offer">-{{ pro.offer }}%</div>
+    {% if pro.offer > 0%}
+      <div class="offer">-{{ pro.offer }}%</div>
+    {% endif %}
     <a href="/detail/{{pro.id}}"><img src="{{ pro.images[0] }}" alt="Product Name"></a>
   </div>
   <div class="productname">{{pro.name}}</div>

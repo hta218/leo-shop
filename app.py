@@ -8,6 +8,8 @@ from user import User
 app = Flask(__name__)
 mlab.connect()
 
+app.secret_key = 'leoshop-secret-key'
+
 @app.route('/')
 def index():
     hotProducts = Product.getHomeProducts()
@@ -37,15 +39,21 @@ def index():
 
 @app.route('/product/<cat>')
 def category(cat):
+    session['curr_cat'] = cat
     products = Product.getProductByCategory(cat)
     return render_template('productgrid.html', products=products)
 
 @app.route('/product/search')
 def search():
+    cat = session['curr_cat']
+    if cat is None:
+        cat = 'mobile'
+
     search_type = request.args.get('type')
     value = request.args.get('value')
+    sort = request.args.get('order-by')
     
-    products = Product.search(search_type, value)
+    products = Product.search(cat, search_type, value, sort)
     return render_template('productgrid.html', products=products)
 
 @app.route('/detail/<id>')
