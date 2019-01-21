@@ -2,6 +2,10 @@
   display: none;
 }
 
+.d-block {
+  display: block;
+}
+
 #home-slider img {
   object-fit: cover;
   max-height: 100%;
@@ -219,3 +223,9 @@
 .login-button{margin-top:10px;}
 .login-options{margin-bottom:0px;}
 .login-forgot{float: right;}
+
+.leo-header-form i {
+  font-weight: bold;
+  width: 14px;
+  height: 14px;
+}

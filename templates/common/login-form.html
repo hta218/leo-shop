@@ -1,6 +1,6 @@
-<li><a class="log" data-toggle="modal" data-target="#login-form">Đăng nhập</a></li>
+<li><a class="log" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
 <!-- Modal -->
-<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" style="width: 300px;" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,19 +11,22 @@
         <div class="login-form">
           <div class="panel panel-default" style="border: 0px; margin-bottom: 10px;">
             <div class="panel-body">
-              <form>
+              <form class="leo-header-form" id="leo-login-form">
                 <div class="input-group login-userinput">
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                   <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="username" placeholder="Email">
                 </div>
                 <div class="input-group">
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                  <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
                   <input id="txtPassword" type="password" class="form-control" style="border-radius: 3px;" name="password" placeholder="Mật khẩu">
                 </div>
-                <div class="checkbox login-options">
-                  <label><input type="checkbox"/>Nhớ mật khẩu</label>
+                <div style="margin-top: 10px; display: none;" id="leo-form-warning">
+                  <i style="font-style: italic; color: red; font-size: 13px;">Sai tên đăng nhập hoặc mật khẩu !</i>
                 </div>
-                <button class="btn btn-primary btn-block login-button" type="submit">
+                <div class="checkbox login-options">
+                  <label><input type="checkbox" name="remember"/>Nhớ mật khẩu</label>
+                </div>
+                <button class="btn btn-primary btn-block login-button" data-loading-text="Loading..." type="submit" id="leo-login-btn">
                   <i class="fa fa-sign-in"></i> &nbsp;
                   Đăng nhập
                 </button>

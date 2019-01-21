@@ -3,7 +3,7 @@ jQuery(document).ready(function () {
   const $ = jQuery
 
   initCart($)
-  
+
   // Set up event listener
   $('.add-to-cart-btn').on('click', function () {
     console.log('add to cart clicked')
@@ -31,13 +31,18 @@ jQuery(document).ready(function () {
     updateUICart($, cart)
   })
 
-  $('#leo-shop-cart').hover(function() {
-    let cart = localStorage.getItem('leo-shop-cart')  
+  $('#leo-shop-cart').hover(function () {
+    let cart = localStorage.getItem('leo-shop-cart')
 
-    if(cart) {
+    if (cart) {
       cart = JSON.parse(cart)
       renderHeaderCart($, cart)
     }
+  })
+
+  $('#leo-login-btn').on('click', e => {
+    e.preventDefault()
+    handleLogin($)
   })
 })
 
@@ -80,7 +85,7 @@ const renderHeaderCart = ($, cart) => {
     $item.find('.leo-pro-quantity').text(pro.quantity)
     $item.find('.price').text(formatMoney(pro.price * pro.quantity))
     $item.css('display', 'block')
-    
+
     $cartList.append($item)
     totalMoney += pro.price * pro.quantity
   })
@@ -92,3 +97,34 @@ const renderHeaderCart = ($, cart) => {
 
 const formatMoney = intMoney => parseInt(intMoney).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.0', 'đ')
 
+const handleLogin = $ => {
+  const $form = $("#leo-login-form")
+  const user_name = $form.find('input[type="text"]').val()
+  const password = $form.find('input[type="password"]').val()
+  const remember = $form.find('input[type="checkbox"]').val()
+
+  $.ajax({
+    url: '/login',
+    data: { user_name, password },
+    type: 'GET',
+    contentType: 'application/json;charset=UTF-8',
+    success: function (user) {
+      console.log(user)
+      if (!user) $('#leo-form-warning').css('display', 'block')
+      else {
+        if (user.role === 'admin') {
+          window.location = '/admin'
+          return
+        }
+
+        $('#login-modal').modal('hide')
+        $('#leo-user-menu').find('ul').addClass('d-none')
+        $('#leo-user-name').text(user.display_name)
+        $('#leo-user-menu').find('div').addClass('d-block')
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}

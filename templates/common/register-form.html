@@ -11,24 +11,27 @@
       <div class="modal-body">
         <div class="panel panel-default" style="border: 0px; margin-bottom: 10px;">
           <div class="panel-body">
-            <form>
+            <form class="leo-header-form">
               <div class="input-group login-userinput">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="name"
+                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" style="border-radius: 3px;" name="name"
                   placeholder="Họ tên">
               </div>
-              <div class="input-group login-userinput">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                
+              <div class="input-group login-userinput" style="line-height: 31px;">
+                <span class="input-group-addon" style="border-right: 1px solid rgb(204, 204, 204);">
+                  <i class="fa fa-venus-mars" aria-hidden="true"></i>
+                </span>
+                <label class="radio-inline" style="margin-left: 15px;"><input type="radio" name="gender" style="height: 21px;" required>Nam</label>
+                <label class="radio-inline"><input type="radio" name="gender" style="height: 21px;" required>Nữ</label>
               </div>
               <div class="input-group login-userinput">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <input id="txtUser" type="text" class="form-control" style="border-radius: 3px;" name="email"
+                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" style="border-radius: 3px;" name="email"
                   placeholder="Email">
               </div>
               <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                <input id="txtPassword" type="text" class="form-control" style="border-radius: 3px;" name="phone_number"
+                <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" style="border-radius: 3px;" name="phone_number"
                   placeholder="Số điện thoại">
               </div>
               <button class="btn btn-primary btn-block login-button" type="submit">

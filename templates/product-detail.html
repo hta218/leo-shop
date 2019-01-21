@@ -91,7 +91,13 @@
                 </div>
                 <div class="tab-content-wrap">
                   <div class="tab-content" id="Descraption">
-                    <p>{{ product.description }}</p>
+                    {% for des in product.description %}
+                      <div>
+                        <h3 style="font-weight: bold; font-size: 20px;">{{ des.title }}</h3>
+                        <p style="margin: 20px 0px; line-height: 1.75;">{{ des.content }}</p>
+                        <img src="{{ des.image }}" style="margin-bottom: 20px;">
+                      </div>
+                    {% endfor %}
                   </div>
                   <div class="tab-content" id="Reviews">
                     <form>

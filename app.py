@@ -3,6 +3,7 @@ from flask import *
 import mlab
 import json
 from order import Order
+from user import User
 
 app = Flask(__name__)
 mlab.connect()
@@ -103,7 +104,28 @@ def contact():
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    user_name = request.args.get('user_name')
+    password = request.args.get('password')
+    user = User.findUser(user_name, password)
+
+    print('========================>', user)
+    if user is None: 
+        return jsonify(user)
+
+    display_name = user.display_name
+    role = user.role
+    return jsonify({ 'display_name': display_name, 'role': role })
+
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    if request.method == 'GET': 
+        return render_template('admin.html')
+    else: 
+        form = request.form
+        Product.createProduct(form)
+        
+        return render_template('admin.html')
+        
 
 if __name__ == '__main__':
     app.run(debug=True)

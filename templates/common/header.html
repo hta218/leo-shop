@@ -19,11 +19,18 @@
                         <li><a href="#">Hỗ trợ</a></li>
                      </ul>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-3" id="leo-user-menu">
                      <ul class="usermenu">
                         {% include 'common/login-form.html' %}
                         {% include 'common/register-form.html' %}
                      </ul>
+                     <div class="usermenu d-none" style="color: white;">
+                        <p>
+                           Xin chào: &nbsp;
+                           <span id="leo-user-name" style="color: lightgreen;">Huỳnh Tuấn Anh</span>
+                           <a href="/logout" title="Đăng xuất"><i class="fa fa-sign-out" aria-hidden="true"  style="color: white;"></i></a>
+                        </p>
+                     </div>
                   </div>
                </div>
             </div>
@@ -43,11 +50,11 @@
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                      <li><a href="/product/mobile">điện thoại</a></li>
-                     <li><a href="productlitst.html">tablet</a></li>
-                     <li><a href="productgird.html">laptop</a></li>
-                     <li><a href="productgird.html">pc</a></li>
-                     <li><a href="productgird.html">phụ kiện</a></li>
-                     <li><a href="productgird.html">đồng hồ</a></li>
+                     <li><a href="/product/tablet">tablet</a></li>
+                     <li><a href="/product/laptop">laptop</a></li>
+                     <li><a href="/product/pc">pc</a></li>
+                     <li><a href="/product/equipment">phụ kiện</a></li>
+                     <li><a href="/product/watch">đồng hồ</a></li>
                      <li><a href="/contact">liên hệ</a></li>
                   </ul>
                </div>

@@ -1724,6 +1724,7 @@ form.newsletter input[type="submit"]:hover{
   display: block;
   margin: 15px 0;
   padding: 25px;
+  padding-bottom: 0px;
 }
 .tab-content h3{
   margin-bottom: 15px;

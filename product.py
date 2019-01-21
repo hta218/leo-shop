@@ -1,7 +1,7 @@
 #coding=utf8
 from mongoengine import Document, StringField, ListField, IntField, BooleanField
 import mlab
-
+from helper import formatMoney
 mlab.connect()
 
 class Product(Document):
@@ -16,7 +16,7 @@ class Product(Document):
     offer = IntField()
     new = BooleanField()
     intro = StringField()
-    description = StringField()
+    description = ListField()
     quantity = IntField()
     rate = IntField()
     deals = ListField()
@@ -37,98 +37,56 @@ class Product(Document):
       hotProducts = Product.objects(new=True).limit(8).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
       return hotProducts
 
-    # @classmethod
-    # def getProductByField(cls, field):
-    #   products = Product.objects([field]=field).limit(9).skip(0).fields(images=1, name=1, price=1, new=1, offer=1)
-    #   return products
+    @classmethod
+    def createProduct(cls, form):
+      category = form['category']
+      name = form['name']
+      brand = form['brand']
+      price = form['price']
+      quantity = form['quantity']
 
-# for i in range(20):
-#   pro = Product(
-#     category="mobile",
-#     name="Điện thoại iPhone Xs Max 512GB",
-#     images=[
-#         'https://cdn.tgdd.vn/Products/Images/42/191482/iphone-xs-max-512gb-gold-400x460.png',
-#         'https://cdn.tgdd.vn/Products/Images/42/191482/iphone-xs-max-512gb-vang-1-1-org.jpg',
-#         'https://cdn.tgdd.vn/Products/Images/42/191482/iphone-xs-max-512gb-vang-2-1-org.jpg',
-#         'https://cdn.tgdd.vn/Products/Images/42/191482/iphone-xs-max-512gb-vang-4-org.jpg',
-#         'https://cdn.tgdd.vn/Products/Images/42/191482/iphone-xs-max-512gb-vang-11-org.jpg'
-#     ],
-#     price=37990000,
-#     display_price='37.990.000đ',
-#     colors=['gold', 'white', 'black'],
-#     tags=['iphone', 'apple'],
-#     brand='apple',
-#     offer='10',
-#     new=True,
-#     intro='Sau 1 năm mong chờ, chiếc smartphone cao cấp nhất của Apple đã chính thức ra mắt mang tên iPhone Xs Max. Máy các trang bị các tính năng cao cấp nhất từ chip A12 Bionic, dàn loa đa chiều cho tới camera kép tích hợp trí tuệ nhân tạo.',
-#     description="""
-#       Hiệu năng đỉnh cao cùng chip Apple A12
-#       iPhone Xs Max được Apple trang bị cho con chip mới toanh hàng đầu của hãng mang tên Apple A12.
+      offer = form['offer']
+      colors = form.getlist('colors')
+      tags = form.getlist('tags')
 
-#       Chip A12 Bionic được xây dựng trên tiến trình 7nm đầu tiên mà hãng sản xuất với 6 nhân đáp ứng vượt trội trong việc xử lý các tác vụ và khả năng tiết kiệm năng lượng tối ưu.
+      deals = [form['deals1'], form['deals2'], form['deals3']]
+      intro = form['intro']
+      images = [form['image1'], form['image2'], form['image3'], form['image4'], form['image5']]
 
-#       Trải nghiệm điện thoại iPhone Xs Max chính hãng
+      description = [
+        {
+          'title': form['des_title1'],
+          'content': form['des_content1'],
+          'image': form['des_img1'],
+        },
+        {
+          'title': form['des_title2'],
+          'content': form['des_content2'],
+          'image': form['des_img2'],
+        },
+        {
+          'title': form['des_title3'],
+          'content': form['des_content3'],
+          'image': form['des_img3'],
+        },
+      ]
 
-#       Hơn nữa, chiếc điện thoại iPhone còn có bộ xử lý đồ họa mạnh mẽ được Apple thiết kế riêng giúp hiệu năng được cải thiện rất lớn về mặt đồ họa của máy.
+      new_pro = Product(
+        category=category,
+        name=name,
+        brand=brand,
+        price=price,
+        display_price=formatMoney(int(price)),
+        quantity=quantity,
+        offer=offer,
+        colors=colors,
+        tags=tags,
+        deals=deals,
+        intro=intro,
+        images=images,
+        description=description,
+        rate=5,
+        new=True
+      )
 
-#       Chưa dừng lại ở đó, máy còn được tích hợp trí thông minh nhân tạo giúp phần cứng tối ưu hiệu suất, nhờ đó mà các thao tác của bạn được xử lý một cách nhanh chóng hơn.
-
-#       Trải nghiệm điện thoại iPhone Xs Max chính hãng
-
-#       Thiết kế viền thép không gỉ và mặt kính cường lực cao cấp, chắc chắn
-#       Điện thoại iPhone Xs Max sở hữu lối thiết kế vô cùng đẹp mắt với những đường cong mềm mại được thừa hưởng từ chiếc iPhone đời trước đó.
-
-#       Thiết kế điện thoại iPhone Xs Max chính hãng
-#       Tuy nhiên, iPhone Xs Max lại có một thân hình to bản ngang bằng với kích thước dòng Plus nhưng chứa đựng một màn hình rộng lớn lên đến 6.5 inch.
-
-#       Thiết kế điện thoại iPhone Xs Max chính hãng
-#       Nhờ thế mà bạn sẽ có một không gian trải nghiệm vô cùng rộng rãi để thưởng thức những bộ phim chất lượng cao được trở nên trọn vẹn.
-
-#       Màn hình OLED chất lượng cao rộng 6.5 inch đầu tiên của Apple
-#       Với công nghệ Super Retina kết hợp tấm nền OLED trên iPhone Xs Max đem lại dải màu sắc cực kì sống động và sắc nét đến từng chi tiết.
-
-#       Màn hình điện thoại iPhone Xs Max chính hãng
-
-#       Bên cạnh đó, Apple còn tích hợp thêm công nghệ HDR10 cùng tần số cảm ứng 120 Hz giúp chất lượng hình ảnh được nâng cao và mượt mà hơn đáng kể.
-
-#       Màn hình điện thoại iPhone Xs Max chính hãng
-
-#       Việc sở hữu màn hình lớn đem đến cho bạn khá nhiều tiện ích như dễ dàng chỉnh sửa ảnh, xem phim, lướt web nhưng sẽ khó khăn hơn trong việc di chuyển.
-
-#       Camera kép tích hợp trí tuệ nhân tạo
-#       Dù không sở hữu thông số camera khủng nhưng iPhone Xs Max luôn cho thấy sự đẳng cấp của mình về khả năng nhiếp ảnh với cụm camera kép độ phân giải 12MP.
-
-#       Máy được trang bị hệ thống xử lý hình ảnh chất lượng cân bằng sáng, giảm nhiễu, tăng cường độ phơi sáng, màu da sao cho phù hợp và tự nhiên nhất.
-
-#       Camera sau điện thoại iPhone Xs Max chính hãng
-
-#       Cùng với đó là khả năng điều chỉnh khẩu độ ấn tượng từ f/1.4 đến f/16 ngay trên bức ảnh sau khi chụp ảnh với chế độ chân dung.
-
-#       Chưa dừng lại ở đó, máy còn được tích hợp thêm công nghệ Smart HDR giúp tái tạo hình ảnh và cho ra một bức hình với độ sáng tốt nhất.
-
-#       Camera sau điện thoại iPhone Xs Max chính hãng
-
-#       Ngoài ra, iPhone Xs Max còn được hỗ trợ bởi trí thông minh nhân tạo đem đến khả năng tự động điều chỉnh màu sắc, độ sáng và độ tương phản sao cho phù hợp với từng vật thể khác nhau.
-
-#       Một số tính năng cao cấp được cập nhật và bổ sung
-#       Face ID đã được Apple cải tiến về khả năng bảo mật cũng như cho tốc độ mở khóa được nhanh hơn nhờ các thuật toán mới.
-
-#       Mở khoá điện thoại iPhone Xs Max chính hãng
-
-#       Bên cạnh đó, tính năng Animoji cũng được cập nhật thêm một số biểu tượng mới trông khá ngộ nghĩnh và đáng yêu.
-
-#       Animoji trên điện thoại iPhone Xs Max chính hãng
-
-#       Với hệ thống camera TrueDepth nay bạn có thể tự tạo cho bản thân những bức ảnh ấn tượng với công nghệ thực tế ảo tăng cường AR.
-
-#       Ngoài ra, hệ thống âm thanh 2 chiều trên siêu phẩm mới được Apple tinh chỉnh lại cho dải âm rộng, âm thanh sống động hơn hay khả năng kháng nước và bụi cũng được nâng cấp lên thành IP 68 đảm bảo an toàn hơn cho máy.
-#       """,
-#     quantity = 20,
-#     rate = 5,
-#     deals=[
-#       'Giảm ngay 1 triệu *',
-#       'Mua kèm Tai nghe Bluetooth AirPods Apple với giá ưu đãi giảm 1 triệu (không áp dụng đồng thời khuyến mãi khác)',
-#       'Cơ hội trúng 61 xe Wave Alpha khi trả góp Home Credit'
-#     ]
-#   )
-#   pro.save()
+      new_pro.save()
