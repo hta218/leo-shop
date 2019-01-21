@@ -910,6 +910,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
   color: #2f2f2f;
   margin-bottom: 10px;
   color: #333333;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .products .price{
   float: left;

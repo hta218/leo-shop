@@ -34,7 +34,7 @@ class Product(Document):
 
     @classmethod
     def getHomeProducts(cls):
-      hotProducts = Product.objects(new=True).limit(8).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
+      hotProducts = Product.objects(new=True).order_by('-id').limit(8).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
       return hotProducts
 
     @classmethod
