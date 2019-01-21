@@ -12,7 +12,7 @@ app.secret_key = 'leoshop-secret-key'
 
 @app.route('/')
 def index():
-    hotProducts = Product.getHomeProducts()
+    hotProducts = Product.getHomeProducts(numb=0)
     hotProducts_1 = []
     hotProducts_2 = []
 
@@ -20,7 +20,7 @@ def index():
         hotProducts_1.append(hotProducts[i])
         hotProducts_2.append(hotProducts[i + 4])
 
-    featureProducts = Product.getHomeProducts()
+    featureProducts = Product.getHomeProducts(numb=20)
     feaProducts_1 = []
     feaProducts_2 = []
 
@@ -40,7 +40,12 @@ def index():
 @app.route('/product/<cat>')
 def category(cat):
     session['curr_cat'] = cat
-    products = Product.getProductByCategory(cat)
+    page = request.args.get('page')
+    if page is None:
+        page = 1
+    page = int(page)
+
+    products = Product.getProductByCategory(cat, page)
     return render_template('productgrid.html', products=products)
 
 @app.route('/product/search')
@@ -48,12 +53,17 @@ def search():
     cat = session['curr_cat']
     if cat is None:
         cat = 'mobile'
+    
+    page = request.args.get('page')
+    if page is None:
+        page = 1
+    page = int(page)
 
     search_type = request.args.get('type')
     value = request.args.get('value')
     sort = request.args.get('order-by')
     
-    products = Product.search(cat, search_type, value, sort)
+    products = Product.search(cat, search_type, value, sort, page)
     return render_template('productgrid.html', products=products)
 
 @app.route('/detail/<id>')

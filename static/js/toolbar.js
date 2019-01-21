@@ -4,13 +4,33 @@ jQuery(document).ready(function () {
     console.log('Leo toolbar change')
     const value = $(this).val()
     const { href } = window.location
-    if (href.indexOf('order-by') > 0) {
-      window.location = updateQueryStringParameter(href, 'order-by', value)
-    } else if (href.indexOf('search') < 0) {
+    
+    if (href.indexOf('search') < 0) {
       window.location = `/product/search?order-by=${value}`
     } else {
-      const temp = href.indexOf('?') > 0 ? '&' : '?'
-      window.location = `${href}${temp}order-by=${value}`
+      window.location = updateQueryStringParameter(href, 'order-by', value)
+    }
+  })
+
+  $('#leo-toolbar-pagination').on('click', e => {
+    e.preventDefault()
+    const $target = $(e.target)
+    const value = $target.attr('data-leo-page-click')
+
+    switch (value) {
+      case 'next':
+        console.log('next')
+        break
+      case 'prev':
+        console.log('prev')
+        break
+      default:
+        const page = parseInt(value)
+        if (!page) break
+
+        const { href } = window.location
+        window.location = updateQueryStringParameter(href, 'page', page)
+        break
     }
   })
 })

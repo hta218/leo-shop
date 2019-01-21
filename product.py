@@ -23,8 +23,8 @@ class Product(Document):
 
 
     @classmethod
-    def getProductByCategory(cls, category):
-      products = Product.objects(category=category).order_by('-id').limit(9).skip(0).fields(images=1, 
+    def getProductByCategory(cls, category, page):
+      products = Product.objects(category=category).order_by('-id').limit(9).skip(9 * (page - 1)).fields(images=1, 
                                                                             name=1, 
                                                                             price=1, 
                                                                             display_price=1,
@@ -33,12 +33,12 @@ class Product(Document):
       return products
 
     @classmethod
-    def getHomeProducts(cls):
-      hotProducts = Product.objects(new=True).order_by('-id').limit(8).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
+    def getHomeProducts(cls, numb):
+      hotProducts = Product.objects(new=True).order_by('-id').limit(8).skip(numb).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
       return hotProducts
 
     @classmethod
-    def search(cls, cat, search_type, value, sort):
+    def search(cls, cat, search_type, value, sort, page):
       products = Product.objects(category=cat)
 
       if search_type == 'brand':
@@ -58,7 +58,7 @@ class Product(Document):
       if sort is not None:
         products = products.order_by(sort, '-id')
 
-      products = products.limit(9).skip(0).fields(images=1, 
+      products = products.limit(9).skip(9 * (page - 1)).fields(images=1, 
                                                   name=1, 
                                                   price=1, 
                                                   display_price=1,
