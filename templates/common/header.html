@@ -28,7 +28,8 @@
                         <p>
                            Xin chào: &nbsp;
                            <span id="leo-user-name" style="color: lightgreen;">Huỳnh Tuấn Anh</span>
-                           <a href="/logout" title="Đăng xuất"><i class="fa fa-sign-out" aria-hidden="true"  style="color: white;"></i></a>
+                           <a href="/logout" title="Đăng xuất" id="leo-logout-user"><i class="fa fa-sign-out"
+                                 aria-hidden="true" style="color: white;"></i></a>
                         </p>
                      </div>
                   </div>
@@ -39,8 +40,11 @@
             <div class="header_bottom PaddingLeft33px">
                <ul class="option">
                   <li id="search" class="search">
-                     <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Tìm kiếm sản phẩm..."
-                           type="text" value="" name="search"></form>
+                     <form id="leo-search-product-form">
+                        <input class="search-submit" type="submit" value="">
+                        <input class="search-input" placeholder="Tìm kiếm sản phẩm..."
+                           type="text" value="" name="search">
+                     </form>
                   </li>
                   {% include 'common/cart.html' %}
                </ul>

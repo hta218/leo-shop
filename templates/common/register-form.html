@@ -9,32 +9,43 @@
         <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">Đăng kí</h4>
       </div>
       <div class="modal-body">
-        <div class="panel panel-default" style="border: 0px; margin-bottom: 10px;">
-          <div class="panel-body">
-            <form class="leo-header-form">
+        <div class="panel panel-default" style="border: 0px; margin-bottom: 0px;">
+          <div class="panel-body" style="padding-top: 0px;">
+            <div>
+              <p style="margin-bottom: 15px;">Đăng kí trở thành khách hàng thân thiết của Leo Shop để nhận những ưu đãi
+                hấp dẫn nhất và những thông về những sản phẩm mới nhất của Lep Shop !</p>
+            </div>
+            <form class="leo-header-form" id="leo-register-form">
               <div class="input-group login-userinput">
                 <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" style="border-radius: 3px;" name="name"
-                  placeholder="Họ tên">
+                <input type="text" class="form-control" style="border-radius: 3px;" name="name" placeholder="Họ tên">
+              </div>
+              <div class="input-group login-userinput">
+                <span class="input-group-addon"><i class="fa fa-keyboard-o" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" style="border-radius: 3px;" name="user_name" placeholder="Tên đăng nhập">
               </div>
               <div class="input-group login-userinput" style="line-height: 31px;">
                 <span class="input-group-addon" style="border-right: 1px solid rgb(204, 204, 204);">
                   <i class="fa fa-venus-mars" aria-hidden="true"></i>
                 </span>
-                <label class="radio-inline" style="margin-left: 15px;"><input type="radio" name="gender" style="height: 21px;" required>Nam</label>
-                <label class="radio-inline"><input type="radio" name="gender" style="height: 21px;" required>Nữ</label>
+                <label class="radio-inline" style="margin-left: 15px;">
+                  <input type="radio" name="gender" style="height: 21px;" value="1" required>
+                  Nam
+                </label>
+                <label class="radio-inline"><input type="radio" name="gender" style="height: 21px;" value="0" required>Nữ</label>
               </div>
               <div class="input-group login-userinput">
                 <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" style="border-radius: 3px;" name="email"
-                  placeholder="Email">
+                <input type="text" class="form-control" style="border-radius: 3px;" name="email" placeholder="Email">
               </div>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" style="border-radius: 3px;" name="phone_number"
-                  placeholder="Số điện thoại">
+                <input type="text" class="form-control" style="border-radius: 3px;" name="phone_number" placeholder="Số điện thoại">
               </div>
-              <button class="btn btn-primary btn-block login-button" type="submit">
+              <div style="margin-top: 10px; display: none;" class="leo-form-warning">
+                <i style="font-style: italic; color: red; font-size: 13px;"></i>
+              </div>
+              <button class="btn btn-primary btn-block login-button" type="submit" id="leo-register-btn">
                 <i class="fa fa-sign-in"></i> &nbsp;
                 Đăng kí
               </button>

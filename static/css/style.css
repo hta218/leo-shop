@@ -142,7 +142,7 @@ img{
 .red-bg{
   background: #ff3a3a;
 }
-.yellow-bg{
+.yeallow-bg{
   background: #fcff19;
 }
 .black-bg{
@@ -914,6 +914,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus,
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 10px;
 }
 .products .price{
   float: left;
@@ -1612,8 +1613,8 @@ form.newsletter input[type="submit"]:hover{
   overflow: hidden;
 }
 .products-description .name{
-  font-weight: 400;
-  margin-bottom: 15px;
+  font-weight: bold;
+  margin-bottom: 17px;
 }
 .border{
   border-color: #e1e1e1;

@@ -88,14 +88,13 @@
   height: 32px;
   position: relative;
   cursor: pointer;
-  pointer-events: none;
 }
 
 .leo-checkout-inc-qty::before{
   content: '';
   width: 12px;
   height: 2px;
-  background: #ccc;
+  background: #288ad6;
   display: block;
   margin: 15px auto;
 }
@@ -228,4 +227,12 @@
   font-weight: bold;
   width: 14px;
   height: 14px;
+}
+
+.pointer-event-none {
+  pointer-events: none;
+}
+
+.pointer-event-none::before, .pointer-event-none::after {
+  background: #ccc;
 }

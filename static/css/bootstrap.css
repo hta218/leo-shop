@@ -3817,7 +3817,7 @@ a.list-group-item.active > .badge,.nav-pills > .active > a > .badge{
 .thumbnail > img,.thumbnail a > img{
   display: block;
   height: auto;
-  max-width: 100%;
+  max-width: 95%;
   margin-right: auto;
   margin-left: auto;
 }

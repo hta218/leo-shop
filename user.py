@@ -18,14 +18,29 @@ class User(Document):
     user = User.objects(user_name=user_name, password=password).first()
     return user
 
-# new_user = User(
-#   display_name = "Huỳnh Tuấn Anh",
-#   user_name = 'admin',
-#   password = '123456',
-#   email="anhht@bravebits.vn",
-#   role="admin",
-#   gender=1,
-#   phone_number="0387176583"
-# )
 
-# new_user.save()
+  @classmethod
+  def register(cls, request):
+    display_name = request.args.get('display_name')
+    user_name = request.args.get('user_name')
+    email = request.args.get('email')
+    role = request.args.get('role')
+    gender = request.args.get('gender')
+    phone_number = request.args.get('phone_number')
+
+    user = User.objects(user_name=user_name).first()
+
+    if user is None:
+      new_user = User(
+        display_name=display_name,
+        user_name=user_name,
+        password=user_name,
+        email=email,
+        role=role,
+        gender=gender,
+        phone_number=phone_number,
+      )
+      new_user.save()
+      return { 'success': 1, 'display_name': display_name }
+    
+    return { 'success': 0 }

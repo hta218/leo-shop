@@ -3,6 +3,7 @@ jQuery(document).ready(function () {
   const $ = jQuery
 
   initCart($)
+  findCurrUser($)
 
   // Set up event listener
   $('.add-to-cart-btn').on('click', function () {
@@ -44,7 +45,42 @@ jQuery(document).ready(function () {
     e.preventDefault()
     handleLogin($)
   })
+
+  $('#leo-register-btn').on('click', e => {
+    e.preventDefault()
+    handleRegister($)
+  })
+
+  $('#leo-logout-user').on('click', e => {
+    e.preventDefault()
+    localStorage.removeItem('leo-curr-user')
+    window.location = '/logout'
+  })
+
+  $('#leo-filter-btn').on('click', e => {
+    e.preventDefault()
+    const $form = $("#leo-filter-form")
+    const floor = $form.find('input[name="floor"]').val()
+    const ceil = $form.find('input[name="ceil"]').val()
+    window.location = `/product/search?type=price&value=${floor}-${ceil}`
+  })
+
+  $('#leo-search-product-form').on('submit', e => {
+    e.preventDefault()
+    const $form = $('#leo-search-product-form')
+    const term = $form.find('input[name="search"]').val()
+    window.location = `/product/search?type=name&value=${term}`
+  })
 })
+
+const findCurrUser = $ => {
+  const user = localStorage.getItem('leo-curr-user')
+  if (user) {
+    $('#leo-user-menu').find('ul').addClass('d-none')
+    $('#leo-user-name').text(user)
+    $('#leo-user-menu').find('div').removeClass('d-none').addClass('d-block')
+  }
+}
 
 const initCart = $ => {
   let cart = localStorage.getItem('leo-shop-cart')
@@ -110,7 +146,7 @@ const handleLogin = $ => {
     contentType: 'application/json;charset=UTF-8',
     success: function (user) {
       console.log(user)
-      if (!user) $('#leo-form-warning').css('display', 'block')
+      if (!user) $('.leo-form-warning').eq(0).css('display', 'block')
       else {
         if (user.role === 'admin') {
           window.location = '/admin'
@@ -121,6 +157,45 @@ const handleLogin = $ => {
         $('#leo-user-menu').find('ul').addClass('d-none')
         $('#leo-user-name').text(user.display_name)
         $('#leo-user-menu').find('div').addClass('d-block')
+
+        if (remember) {
+          localStorage.setItem('leo-curr-user', user.display_name)
+        } else {
+          localStorage.removeItem('leo-curr-user')
+        }
+      }
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
+const handleRegister = $ => {
+  const $form = $("#leo-register-form")
+  const display_name = $form.find('input[name="name"]').val()
+  const user_name = $form.find('input[name="user_name"]').val()
+  const email = $form.find('input[name="email"]').val()
+  const role = $form.find('input[name="role"]').val()
+  const gender = $form.find('input[name="gender"]').val()
+  const phone_number = $form.find('input[name="phone_number"]').val()
+
+  $.ajax({
+    url: '/register',
+    data: { display_name, user_name, email, role, gender, phone_number },
+    type: 'GET',
+    contentType: 'application/json;charset=UTF-8',
+    success: function (data) {
+      console.log(data)
+      if (!data.success) {
+        $('.leo-form-warning').eq(1).find('i').text(`Tên đăng nhập "${user_name}" đã tồn tại !`)
+        $('.leo-form-warning').eq(1).css('display', 'block')
+      }
+      else {
+        $('#register-modal').modal('hide')
+        $('#leo-user-menu').find('ul').addClass('d-none')
+        $('#leo-user-name').text(display_name)
+        $('#leo-user-menu').find('div').removeClass('d-none').addClass('d-block')
       }
     },
     error: function (err) {

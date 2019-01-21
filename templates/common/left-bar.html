@@ -23,28 +23,30 @@
       Nhà cung cấp
     </h3>
     {% set brands = [
-    {'name': 'Apple', 'value': 'mobile'},
-    {'name': 'Oppo', 'value': 'tablet'},
-    {'name': 'Nokia', 'value': 'laptop'},
-    {'name': 'Huawei', 'value': 'pc'},
-    {'name': 'Xiaomi', 'value': 'equipment'},
-    {'name': 'Asus', 'value': 'watch'},
-    {'name': 'Dell', 'value': 'watch'},
-    {'name': 'Lenovo', 'value': 'watch'},
+    {'name': 'Apple', 'value': 'Apple'},
+    {'name': 'Samsung', 'value': 'Samsung'},
+    {'name': 'Sony', 'value': 'Sony'},
+    {'name': 'Oppo', 'value': 'Oppo'},
+    {'name': 'Nokia', 'value': 'Nokia'},
+    {'name': 'Huawei', 'value': 'Huawei'},
+    {'name': 'Xiaomi', 'value': 'Xiaomi'},
+    {'name': 'Asus', 'value': 'Asus'},
+    {'name': 'Dell', 'value': 'Dell'},
+    {'name': 'Lenovo', 'value': 'Lenovo'},
     ] %}
     <ul>
       {% for br in brands %}
-      <li><a href="/product/{{br.value}}">{{br.name}}</a></li>
+      <li><a href="/product/search?type=brand&value={{br.value}}">{{br.name}}</a></li>
       {% endfor %}
     </ul>
   </div>
 
   <div class="price-filter leftbar">
     <h3 class="title">Giá</h3>
-    <form class="pricing">
-      <label>Từ: <input type="number"></label>
-      <label>Đến: <input type="number"></label>
-      <input type="submit" value="Lọc">
+    <form class="pricing" id="leo-filter-form">
+      <label>Từ: <input type="number" name="floor" placeholder="10.000.000"></label>
+      <label>Đến: <input type="number" name="ceil" placeholder="20.000.000"></label>
+      <input type="submit" value="Lọc" id="leo-filter-btn">
     </form>
   </div>
 
@@ -52,11 +54,11 @@
     <h3 class="title">
       Màu
     </h3>
-    {% set colors = ['red', 'yellow', 'black', 'pink', 'dkpink', 'chocolate', 'orange',
+    {% set colors = ['red', 'yeallow', 'black', 'pink', 'dkpink', 'chocolate', 'orange',
     'off-white', 'extra-lightgreen', 'lightgreen', 'biscuit', 'chocolatelight'] %}
     <ul>
       {% for color in colors %}
-      <li><a href="/product/{{color}}" class="{{color}}-bg"></a></li>
+      <li><a href="/product/search?type=color&value={{color}}" class="{{color}}-bg"></a></li>
       {% endfor %}
     </ul>
   </div>
@@ -66,18 +68,24 @@
       Nhãn
     </h3>
     {% set tags = [
-    {'name': 'Ram 4GB', 'value': 'mobile'},
-    {'name': 'Khuyễn Mãi', 'value': 'tablet'},
-    {'name': 'Tặng tai nghe', 'value': 'laptop'},
-    {'name': 'Free Ship', 'value': 'pc'},
-    {'name': 'Ram 8GB', 'value': 'equipment'},
-    {'name': 'Bonus', 'value': 'watch'},
-    {'name': 'Tặng ba lô', 'value': 'watch'},
-    {'name': 'Ram 64GB', 'value': 'watch'},
+      'Iphone',
+      '64GB',
+      '128GB',
+      'Full HD',
+      'Việt Nam',
+      'Khuyễn Mãi',
+      'Free Ship',
+      'Tặng ba lô',
+      'Tặng tai nghe',
+      'Ram 16GB',
+      'Ram 32GB',
+      'Lì Xì',
+      'Thẻ nhớ 64GB',
+      'Bảo hành 2 năm',
     ] %}
     <ul>
       {% for tag in tags %}
-      <li><a href="/product/{{tag.name}}">{{tag.name}}</a></li>
+      <li><a href="/product/search?type=tag&value={{tag}}">{{tag}}</a></li>
       {% endfor %}
     </ul>
   </div>

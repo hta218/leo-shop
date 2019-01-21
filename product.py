@@ -24,7 +24,7 @@ class Product(Document):
 
     @classmethod
     def getProductByCategory(cls, category):
-      products = Product.objects(category=category).limit(9).skip(0).fields(images=1, 
+      products = Product.objects(category=category).order_by('-id').limit(9).skip(0).fields(images=1, 
                                                                             name=1, 
                                                                             price=1, 
                                                                             display_price=1,
@@ -36,6 +36,30 @@ class Product(Document):
     def getHomeProducts(cls):
       hotProducts = Product.objects(new=True).order_by('-id').limit(8).fields(images=1, name=1, price=1, display_price=1, new=1, offer=1)
       return hotProducts
+
+    @classmethod
+    def search(cls, search_type, value):
+      if search_type == 'brand':
+        products = Product.objects(brand=value)
+      elif search_type == 'price':
+        prices = value.split('-')
+        floor = int(prices[0])
+        ceil = int(prices[1])
+        products = Product.objects(price__gte=floor, price__lte=ceil)
+      elif search_type == 'color':
+        products = Product.objects(colors=value)
+      elif search_type == 'tag':
+        products = Product.objects(tags=value)
+      elif search_type == 'name':
+        products = Product.objects(name__icontains=value)
+
+      products = products.order_by('-id').limit(9).skip(0).fields(images=1, 
+                                                                  name=1, 
+                                                                  price=1, 
+                                                                  display_price=1,
+                                                                  new=1, 
+                                                                  offer=1)
+      return products
 
     @classmethod
     def createProduct(cls, form):

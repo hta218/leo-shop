@@ -40,6 +40,14 @@ def category(cat):
     products = Product.getProductByCategory(cat)
     return render_template('productgrid.html', products=products)
 
+@app.route('/product/search')
+def search():
+    search_type = request.args.get('type')
+    value = request.args.get('value')
+    
+    products = Product.search(search_type, value)
+    return render_template('productgrid.html', products=products)
+
 @app.route('/detail/<id>')
 def detail(id):
     product = Product.objects().with_id(id)
@@ -108,13 +116,22 @@ def login():
     password = request.args.get('password')
     user = User.findUser(user_name, password)
 
-    print('========================>', user)
     if user is None: 
         return jsonify(user)
 
     display_name = user.display_name
     role = user.role
+
     return jsonify({ 'display_name': display_name, 'role': role })
+
+@app.route('/register')
+def register():
+    data = User.register(request)
+    return jsonify(data)
+
+@app.route('/logout')
+def logout():
+    return redirect('/')
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
@@ -123,7 +140,7 @@ def admin():
     else: 
         form = request.form
         Product.createProduct(form)
-        
+
         return render_template('admin.html')
         
 
