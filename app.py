@@ -133,16 +133,27 @@ def register():
 def logout():
     return redirect('/')
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/admin')
 def admin():
+    products = Product.objects(category='mobile')
+    return render_template('admin/index.html', products=products)
+        
+@app.route('/admin/add-product', methods=['GET', 'POST'])
+def add_product():
     if request.method == 'GET': 
-        return render_template('admin.html')
+        return render_template('admin/new-product-form.html')
     else: 
         form = request.form
         Product.createProduct(form)
+        return render_template('admin/new-product-form.html')
 
-        return render_template('admin.html')
+@app.route('/delete-product/<pro_id>')
+def delete_product(pro_id):
+    pro = Product.objects.with_id(pro_id)
+    if pro is not None:
+        pro.delete()
         
+    return redirect('/admin')
 
 if __name__ == '__main__':
     app.run(debug=True)
