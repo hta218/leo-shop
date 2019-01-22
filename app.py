@@ -69,7 +69,7 @@ def search():
 @app.route('/detail/<id>')
 def detail(id):
     product = Product.objects().with_id(id)
-    hotProducts = Product.getHomeProducts()
+    hotProducts = Product.getHomeProducts(numb=0)
     hotProducts_1 = []
     hotProducts_2 = []
     cols = 4
@@ -110,7 +110,7 @@ def checkout():
 
 @app.route('/checkout-success')
 def checkout_success():
-    hotProducts = Product.getHomeProducts()
+    hotProducts = Product.getHomeProducts(numb=10)
     hotProducts_1 = []
     hotProducts_2 = []
     cols = 4

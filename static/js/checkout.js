@@ -26,6 +26,7 @@ const renderCheckoutCart = ($, cart) => {
     $item.find('.leo-checkout-qty').text(pro.quantity)
     $item.find('.leo-checkout-product-price').text(formatMoney(pro.price * pro.quantity))
     $item.on('click', e => handleProductClick(e, $))
+    if (pro.quantity > 1) $item.find('.leo-checkout-inc-qty').removeClass('pointer-event-none')
     $item.css('display', 'block')
 
     $checkoutPanel.append($item)
