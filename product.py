@@ -55,6 +55,13 @@ class Product(Document):
       elif search_type == 'name':
         products = Product.objects(category=cat, name__icontains=value)
 
+      print('===================>', sort)
+      if sort == 'inc_price':
+        sort = '+price'
+      elif sort == 'dec_price':
+        sort = '-price'
+      print('===================>', sort)
+
       if sort is not None:
         products = products.order_by(sort, '-id')
 
